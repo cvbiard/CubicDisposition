@@ -1,0 +1,26 @@
+﻿  health.cpp
+C:\Users\Clark\Desktop\PA8\CubicDisposition\health.cpp(4,63): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\PA8\CubicDisposition\health.cpp(4,44): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\PA8\CubicDisposition\health.cpp(84,47): warning C4244: 'argument': conversion from 'double' to 'sf::Uint8', possible loss of data
+C:\Users\Clark\Desktop\PA8\CubicDisposition\health.cpp(85,47): warning C4244: 'argument': conversion from 'double' to 'sf::Uint8', possible loss of data
+C:\Users\Clark\Desktop\PA8\CubicDisposition\health.cpp(86,47): warning C4244: 'argument': conversion from 'double' to 'sf::Uint8', possible loss of data
+C:\Users\Clark\Desktop\PA8\CubicDisposition\health.cpp(136,45): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\PA8\CubicDisposition\health.cpp(151,34): warning C4305: 'argument': truncation from 'double' to 'float'
+  Generating code
+  2 of 303 functions ( 0.7%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    3 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  CubicDisposition.vcxproj -> C:\Users\Clark\Desktop\PA8\CubicDisposition\Release\CubicDisposition.exe
