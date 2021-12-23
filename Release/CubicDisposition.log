@@ -1,26 +1,463 @@
-﻿  health.cpp
-C:\Users\Clark\Desktop\PA8\CubicDisposition\health.cpp(4,63): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+﻿  Area.cpp
+C:\Users\Clark\Desktop\CubicDisposition\Area.cpp(5,67): warning C4305: 'argument': truncation from 'double' to 'T'
           with
           [
               T=float
           ]
-C:\Users\Clark\Desktop\PA8\CubicDisposition\health.cpp(4,44): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\Area.cpp(6,69): warning C4305: 'argument': truncation from 'double' to 'T'
           with
           [
               T=float
           ]
-C:\Users\Clark\Desktop\PA8\CubicDisposition\health.cpp(84,47): warning C4244: 'argument': conversion from 'double' to 'sf::Uint8', possible loss of data
-C:\Users\Clark\Desktop\PA8\CubicDisposition\health.cpp(85,47): warning C4244: 'argument': conversion from 'double' to 'sf::Uint8', possible loss of data
-C:\Users\Clark\Desktop\PA8\CubicDisposition\health.cpp(86,47): warning C4244: 'argument': conversion from 'double' to 'sf::Uint8', possible loss of data
-C:\Users\Clark\Desktop\PA8\CubicDisposition\health.cpp(136,45): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\Area.cpp(23,63): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\Clark\Desktop\PA8\CubicDisposition\health.cpp(151,34): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Clark\Desktop\CubicDisposition\Area.cpp(23,44): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\Area.cpp(43,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\Area.cpp(47,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\Area.cpp(51,85): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\Area.cpp(55,85): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\Area.cpp(61,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\Area.cpp(65,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\Area.cpp(69,85): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\Area.cpp(73,85): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\Area.cpp(79,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\Area.cpp(83,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\Area.cpp(87,85): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\Area.cpp(91,85): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\Area.cpp(169,45): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  Bomb.cpp
+C:\Users\Clark\Desktop\CubicDisposition\Bomb.cpp(40,78): warning C4244: 'argument': conversion from 'double' to 'sf::Uint8', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\Bomb.cpp(40,43): warning C4244: 'argument': conversion from 'double' to 'sf::Uint8', possible loss of data
+  Effect.cpp
+  enemy.cpp
+C:\Users\Clark\Desktop\CubicDisposition\enemy.cpp(13,44): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\enemy.cpp(26,67): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\enemy.cpp(27,69): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\enemy.cpp(50,50): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\enemy.cpp(75,10): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\enemy.cpp(81,10): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\enemy.cpp(91,45): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  game.cpp
+C:\Users\Clark\Desktop\CubicDisposition\game.cpp(49,10): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\game.cpp(53,120): warning C4244: 'argument': conversion from 'double' to 'sf::Uint8', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\game.cpp(53,81): warning C4244: 'argument': conversion from 'double' to 'sf::Uint8', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\game.cpp(53,42): warning C4244: 'argument': conversion from 'double' to 'sf::Uint8', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\game.cpp(60,53): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\game.cpp(65,53): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\game.cpp(70,53): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\game.cpp(93,49): warning C4244: 'argument': conversion from 'double' to 'sf::Uint8', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\game.cpp(94,47): warning C4244: 'argument': conversion from 'double' to 'sf::Uint8', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\game.cpp(95,47): warning C4244: 'argument': conversion from 'double' to 'sf::Uint8', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\game.cpp(373,131): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\game.cpp(419,65): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\game.cpp(431,64): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\game.cpp(446,96): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\game.cpp(446,67): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\game.cpp(457,95): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\game.cpp(457,66): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\game.cpp(471,95): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\game.cpp(471,66): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\game.cpp(490,95): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\game.cpp(490,66): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\game.cpp(502,89): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\game.cpp(502,62): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\game.cpp(514,89): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\game.cpp(514,62): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\game.cpp(528,98): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\game.cpp(528,68): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\game.cpp(551,98): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\game.cpp(551,68): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  health.cpp
+C:\Users\Clark\Desktop\CubicDisposition\health.cpp(4,63): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\health.cpp(4,44): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\health.cpp(84,47): warning C4244: 'argument': conversion from 'double' to 'sf::Uint8', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\health.cpp(85,47): warning C4244: 'argument': conversion from 'double' to 'sf::Uint8', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\health.cpp(86,47): warning C4244: 'argument': conversion from 'double' to 'sf::Uint8', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\health.cpp(136,45): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\health.cpp(151,34): warning C4305: 'argument': truncation from 'double' to 'float'
+  homing.cpp
+C:\Users\Clark\Desktop\CubicDisposition\homing.cpp(6,67): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\homing.cpp(7,69): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\homing.cpp(24,63): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\homing.cpp(24,44): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\homing.cpp(42,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\homing.cpp(46,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\homing.cpp(50,84): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\homing.cpp(54,84): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\homing.cpp(60,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\homing.cpp(64,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\homing.cpp(68,84): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\homing.cpp(72,84): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\homing.cpp(78,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\homing.cpp(82,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\homing.cpp(86,84): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\homing.cpp(90,84): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\homing.cpp(165,45): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  main.cpp
+C:\Users\Clark\Desktop\CubicDisposition\main.cpp(12,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  menu.cpp
+C:\Users\Clark\Desktop\CubicDisposition\menu.cpp(53,91): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\menu.cpp(53,60): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\menu.cpp(61,97): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\menu.cpp(61,61): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\menu.cpp(68,100): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\menu.cpp(68,63): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\menu.cpp(75,97): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\menu.cpp(75,60): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\menu.cpp(318,70): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\menu.cpp(326,108): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\menu.cpp(378,109): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\menu.cpp(378,67): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\menu.cpp(381,98): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\menu.cpp(381,62): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\menu.cpp(384,123): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\menu.cpp(384,77): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\menu.cpp(387,106): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\menu.cpp(387,69): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\menu.cpp(389,114): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\menu.cpp(389,71): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\menu.cpp(392,103): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\menu.cpp(392,66): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\menu.cpp(441,33): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Clark\Desktop\CubicDisposition\menu.cpp(442,31): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Clark\Desktop\CubicDisposition\menu.cpp(464,40): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Clark\Desktop\CubicDisposition\menu.cpp(465,34): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Clark\Desktop\CubicDisposition\menu.cpp(487,37): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Clark\Desktop\CubicDisposition\menu.cpp(488,31): warning C4305: 'argument': truncation from 'double' to 'float'
+  Shooter.cpp
+C:\Users\Clark\Desktop\CubicDisposition\Shooter.cpp(4,63): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\Shooter.cpp(4,44): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\Shooter.cpp(15,67): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\Shooter.cpp(16,69): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\Clark\Desktop\CubicDisposition\Shooter.cpp(42,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\Shooter.cpp(46,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\Shooter.cpp(50,84): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\Shooter.cpp(54,84): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\Shooter.cpp(60,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\Shooter.cpp(64,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\Shooter.cpp(68,84): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\Shooter.cpp(72,84): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\Shooter.cpp(78,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\Shooter.cpp(82,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\Shooter.cpp(86,85): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\Shooter.cpp(90,85): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\Shooter.cpp(111,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\Shooter.cpp(115,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\Shooter.cpp(119,85): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\Shooter.cpp(123,85): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\Shooter.cpp(129,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\Shooter.cpp(133,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\Shooter.cpp(137,85): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Clark\Desktop\CubicDisposition\Shooter.cpp(141,85): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   Generating code
-  2 of 303 functions ( 0.7%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    3 functions had inline decision re-evaluated but remain unchanged
+  Previous IPDB was built with incompatible compiler, fall back to full compilation.
+  All 305 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
-  CubicDisposition.vcxproj -> C:\Users\Clark\Desktop\PA8\CubicDisposition\Release\CubicDisposition.exe
+  CubicDisposition.vcxproj -> C:\Users\Clark\Desktop\CubicDisposition\Release\CubicDisposition.exe

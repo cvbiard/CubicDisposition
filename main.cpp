@@ -1,6 +1,14 @@
 #include "header.h"
 #include "game.h"
 #include "menu.h"
+
+//To do:
+//1. Framerate independent gameplay
+//2. Fix screen size related bugs
+//3. Options
+//4. Balance
+//5. Installer
+
 int main(void)
 {
 	ofstream outfile("test.txt");
