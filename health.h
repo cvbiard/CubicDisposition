@@ -8,8 +8,8 @@ public:
 	Texture texture;
 	void initSprite();
 	void initTexture();
-	void initEnemy();
-	void movement();
+	void initEnemy(int width, int height);
+	void movement(int width, int height);
 	int speed = 5;
 	int timeClock = 0;
 	int randMove = 0;
@@ -18,7 +18,7 @@ public:
 	int speedV = 0;
 	int maxSpeed = 6;
 	void initTail();
-	void checkDespawn();
+	void checkDespawn(int width);
 private:
 };
 

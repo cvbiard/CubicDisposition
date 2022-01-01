@@ -1,7 +1,7 @@
 #include "health.h"
-void Health::initEnemy()
+void Health::initEnemy(int width, int height)
 {
-	this->setPosition(Vector2f(this->genSpawnX(), this->genSpawnY()));
+	this->setPosition(Vector2f(this->genSpawnX(width), this->genSpawnY(height)));
 
 	//this->setPosition(200.f, 200.f);
 	this->respawnTimer = rand() % 1200;
@@ -28,7 +28,7 @@ void Health::initTail()
 	this->tail2.setPosition(this->getPosition());
 	this->tail3.setPosition(this->getPosition());
 }
-void Health::movement()
+void Health::movement(int width, int height)
 {
 
 
@@ -90,9 +90,9 @@ void Health::movement()
 		this->setPosition(0.f, this->getPosition().y);
 		this->randMove = 0;
 	}
-	if (this->getPosition().x >= 1920.f)
+	if (this->getPosition().x >= (float)width)
 	{
-		this->setPosition(1920.f, this->getPosition().y);
+		this->setPosition((float)width, this->getPosition().y);
 		this->randMove = 1;
 	}
 	if (this->getPosition().y <= 0.f)
@@ -100,9 +100,9 @@ void Health::movement()
 		this->setPosition(this->getPosition().x, 0.f);
 		this->randMove = 2;
 	}
-	if (this->getPosition().y >= 1080.f)
+	if (this->getPosition().y >= (float)height)
 	{
-		this->setPosition(this->getPosition().x, 1080.f);
+		this->setPosition(this->getPosition().x, (float)height);
 		this->randMove = 3;
 	}
 
@@ -128,12 +128,12 @@ void Health::movement()
 	}
 
 }
-void Health::checkDespawn()
+void Health::checkDespawn(int width)
 {
 	if (this->lifeClock == 6000)
 	{
 		this->isDrawn = false;
-		this->setPosition(Vector2f(this->genSpawnX(), 0.f));
+		this->setPosition(Vector2f(this->genSpawnX(width), 0.f));
 		this->respawnTimer = 300;
 
 		this->lifeClock = 0;

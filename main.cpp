@@ -3,8 +3,8 @@
 #include "menu.h"
 
 //To do:
-//1. Framerate independent gameplay
-//2. Fix screen size related bugs
+//1. Fix screen size related bugs - DONE
+//2. Framerate independent gameplay
 //3. Options
 //4. Balance
 //5. Installer

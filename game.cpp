@@ -7,40 +7,44 @@ Game::Game()
 	this->initCharacter();
 	this->initFont();
 	this->initAudio();
-	this->initFlash();
 	for (int i = 0; i < this->basicCount; i++)
 	{
-		this->basic[i].initEnemy();
+		this->basic[i].initEnemy(this->windowWidth, this->windowHeight);
 		this->basic[i].initTail();
 	}
 	for (int i = 0; i < this->homingCount; i++)
 	{
-		this->homing[i].initEnemy();
+		this->homing[i].initEnemy(this->windowWidth, this->windowHeight);
 		this->homing[i].initTail();
 	}
 	for (int i = 0; i < this->healthCount; i++)
 	{
-		this->health[i].initEnemy();
+		this->health[i].initEnemy(this->windowWidth, this->windowHeight);
 		this->health[i].initTail();
 		this->health[i].initTexture();
 		this->health[i].initSprite();
 	}
 	for (int i = 0; i < this->areaCount; i++)
 	{
-		this->area[i].initEnemy();
+		this->area[i].initEnemy(this->windowWidth, this->windowHeight);
 		this->area[i].initTail();
 	}
 	for (int i = 0; i < this->shooterCount; i++)
 	{
-		this->shooter[i].initEnemy();
+		this->shooter[i].initEnemy(this->windowWidth, this->windowHeight);
 		this->shooter[i].initTail();
 	}
 
 	this->initTail();
 }
-void Game::initFlash()
+void Game::initWindowSize(int width, int height)
 {
-	this->flash.setSize(Vector2f(1920, 1080));
+	this->windowWidth = width;
+	this->windowHeight = height;
+}
+void Game::initFlash(int width, int height)
+{
+	this->flash.setSize(Vector2f(width, height));
 	this->flash.setPosition(0, 0);
 	this->flash.setFillColor(Color(255, 0, 0, 0));
 }
@@ -134,7 +138,7 @@ void Game::playTrack()
 
 
 }
-void Game::enemyUpdate()
+void Game::enemyUpdate(int width, int height)
 {
 
 	if (this->score > 10)
@@ -144,7 +148,7 @@ void Game::enemyUpdate()
 			if (this->basic[i].isDrawn == true)
 			{
 				this->basic[i].movement();
-				this->basic[i].checkDespawn();
+				this->basic[i].checkDespawn(this->windowWidth, this->windowHeight);
 			}
 			if (this->basic[i].isDrawn == false)
 			{
@@ -173,8 +177,8 @@ void Game::enemyUpdate()
 		{
 			if (this->health[i].isDrawn == true)
 			{
-				this->health[i].movement();
-				this->health[i].checkDespawn();
+				this->health[i].movement(width, height);
+				this->health[i].checkDespawn(this->windowWidth);
 			}
 			if (this->health[i].isDrawn == false)
 			{
@@ -203,7 +207,7 @@ void Game::enemyUpdate()
 		{
 			if (this->shooter[i].isDrawn == true)
 			{
-				this->shooter[i].movement(this->shooter);
+				this->shooter[i].movement(this->shooter, width, height);
 				//this->area[i].checkDespawn();
 			}
 			if (this->shooter[i].isDrawn == false)
@@ -416,7 +420,7 @@ void Game::collision()
 			{
 				cout << "You hit a basic enemy " << "Draw status: " << this->basic[i].isDrawn << endl;
 				this->basic[i].isDrawn = false;
-				this->basic[i].setPosition(Vector2f(this->basic[i].genSpawnX(), 0.f));
+				this->basic[i].setPosition(Vector2f(this->basic[i].genSpawnX(this->windowWidth), 0.f));
 				this->basic[i].respawnTimer = this->randomRespawn() % 300;
 				cout << "Basic timer: " << this->homing[i].respawnTimer <<endl;
 				this->life = this->life - 1;
@@ -428,7 +432,7 @@ void Game::collision()
 		if (enemyBounds.intersects(bombBounds) && this->bomb.damage == true)
 		{
 			this->basic[i].isDrawn = false;
-			this->basic[i].setPosition(Vector2f(this->basic[i].genSpawnX(), 0.f));
+			this->basic[i].setPosition(Vector2f(this->basic[i].genSpawnX(this->windowWidth), 0.f));
 			this->basic[i].respawnTimer = this->randomRespawn() % 300;
 			this->score = this->score + 50;
 			this->EnemyDie.play();
@@ -443,7 +447,7 @@ void Game::collision()
 			{
 				cout << "You hit a homing enemy" << endl;
 				this->homing[i].isDrawn = false;
-				this->homing[i].setPosition(Vector2f(this->homing[i].genSpawnX(), this->homing[i].genSpawnY()));
+				this->homing[i].setPosition(Vector2f(this->homing[i].genSpawnX(this->windowWidth), this->homing[i].genSpawnY(this->windowHeight)));
 				this->homing[i].respawnTimer = this->randomRespawn() % 200;
 				this->life = this->life - 1;
 				cout << "LIFE: " << this->life << endl;
@@ -454,7 +458,7 @@ void Game::collision()
 		if (homingBounds.intersects(bombBounds) && this->bomb.damage == true)
 		{
 			this->homing[i].isDrawn = false; 
-			this->homing[i].setPosition(Vector2f(this->homing[i].genSpawnX(), this->homing[i].genSpawnY()));
+			this->homing[i].setPosition(Vector2f(this->homing[i].genSpawnX(this->windowWidth), this->homing[i].genSpawnY(this->windowHeight)));
 			this->homing[i].respawnTimer = this->randomRespawn() %  200;
 			cout << "Homing timer: " << this->homing[i].respawnTimer << endl;
 			this->score = this->score + 50;
@@ -468,7 +472,7 @@ void Game::collision()
 		{
 			cout << "You hit a health dude" << endl;
 			this->health[i].isDrawn = false;
-			this->health[i].setPosition(Vector2f(this->health[i].genSpawnX(), this->health[i].genSpawnY()));
+			this->health[i].setPosition(Vector2f(this->health[i].genSpawnX(this->windowWidth), this->health[i].genSpawnY(this->windowHeight)));
 			this->health[i].respawnTimer = this->randomRespawn()%1200;
 			cout << "Health timer: " << this->homing[i].respawnTimer << endl;
 
@@ -487,7 +491,7 @@ void Game::collision()
 		if (healthBounds.intersects(bombBounds) && this->bomb.damage == true)
 		{
 			this->health[i].isDrawn = false;
-			this->health[i].setPosition(Vector2f(this->health[i].genSpawnX(), this->health[i].genSpawnY()));
+			this->health[i].setPosition(Vector2f(this->health[i].genSpawnX(this->windowWidth), this->health[i].genSpawnY(this->windowHeight)));
 			this->health[i].respawnTimer = this->randomRespawn() % 1200;
 			this->EnemyDie.play();
 		}
@@ -499,7 +503,7 @@ void Game::collision()
 		{
 			cout << "You hit a area dude" << endl;
 			this->area[i].isDrawn = false;
-			this->area[i].setPosition(Vector2f(this->area[i].genSpawnX(), this->area[i].genSpawnY()));
+			this->area[i].setPosition(Vector2f(this->area[i].genSpawnX(this->windowWidth), this->area[i].genSpawnY(this->windowHeight)));
 			this->area[i].respawnTimer = this->randomRespawn() % 1200;
 			cout << "Health timer: " << this->area[i].respawnTimer << endl;
 			this->life = this->life - 1;
@@ -511,7 +515,7 @@ void Game::collision()
 		if (areaBounds.intersects(bombBounds) && this->bomb.damage == true)
 		{
 			this->area[i].isDrawn = false;
-			this->area[i].setPosition(Vector2f(this->area[i].genSpawnX(), this->area[i].genSpawnY()));
+			this->area[i].setPosition(Vector2f(this->area[i].genSpawnX(this->windowWidth), this->area[i].genSpawnY(this->windowHeight)));
 			this->area[i].respawnTimer = this->randomRespawn() % 1200;
 			this->score = this->score + 50;
 			this->EnemyDie.play();
@@ -525,7 +529,7 @@ void Game::collision()
 		{
 			cout << "You hit a shooter dude" << endl;
 			this->shooter[i].isDrawn = false;
-			this->shooter[i].setPosition(Vector2f(this->shooter[i].genSpawnX(), this->shooter[i].genSpawnY()));
+			this->shooter[i].setPosition(Vector2f(this->shooter[i].genSpawnX(this->windowWidth), this->shooter[i].genSpawnY(this->windowHeight)));
 			this->shooter[i].respawnTimer = this->randomRespawn() % 1200;
 			cout << "Health timer: " << this->shooter[i].respawnTimer << endl;
 			this->life = this->life - 1;
@@ -548,7 +552,7 @@ void Game::collision()
 		if (shooterBounds.intersects(bombBounds) && this->bomb.damage == true)
 		{
 			this->shooter[i].isDrawn = false;
-			this->shooter[i].setPosition(Vector2f(this->shooter[i].genSpawnX(), this->shooter[i].genSpawnY()));
+			this->shooter[i].setPosition(Vector2f(this->shooter[i].genSpawnX(this->windowWidth), this->shooter[i].genSpawnY(this->windowHeight)));
 			this->shooter[i].respawnTimer = this->randomRespawn() % 1200;
 			this->score = this->score + 50;
 			this->EnemyDie.play();

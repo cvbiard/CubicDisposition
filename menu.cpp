@@ -9,6 +9,8 @@ Menu::Menu()
 	this->initButton();
 	this->initMouseBox();
 	this->game.initText(this->window);
+	this->game.initFlash(this->window->getSize().x, this->window->getSize().y);
+	this->game.initWindowSize(this->window->getSize().x, this->window->getSize().y);
 
 
 }
@@ -23,12 +25,8 @@ void Menu::initVariables()
 }
 void Menu::initWindow()
 {
-	this->videoMode.height = 1080;
-	this->videoMode.width = 1920;
 
-
-
-	this->window = new RenderWindow(this->videoMode, "Cubic Disposition", Style::Fullscreen);
+	this->window = new RenderWindow(VideoMode(), "Cubic Disposition", Style::Fullscreen);
 
 	this->window->setFramerateLimit(60);
 }
@@ -127,7 +125,7 @@ void Menu::update()
 
 		this->game.playTrack();
 		this->game.updateBeatClock();
-		this->game.enemyUpdate();
+		this->game.enemyUpdate(this->window->getSize().x, this->window->getSize().y);
 		this->game.shieldUpdate();
 		this->game.updateFlash();
 		this->game.updateTimeClock();

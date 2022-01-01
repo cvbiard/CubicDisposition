@@ -18,11 +18,11 @@ public:
 	virtual void initTail();
 	Enemy();
 	virtual void movement();
-	int genSpawnY();
-	int genSpawnX();
+	int genSpawnY(int height);
+	int genSpawnX(int width);
 	void checkSpawn();
-	virtual void checkDespawn();
+	virtual void checkDespawn(int width, int height);
 	virtual ~Enemy();
-	virtual void initEnemy();
+	virtual void initEnemy(int width, int height);
 };
 

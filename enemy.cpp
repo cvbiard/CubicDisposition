@@ -8,9 +8,9 @@ Enemy::~Enemy()
 {
 
 }
-void Enemy::initEnemy()
+void Enemy::initEnemy(int width, int height)
 {
-	this->setPosition(Vector2f(this->genSpawnX(), 0.f));
+	this->setPosition(Vector2f(this->genSpawnX(width), 0.f));
 	this->respawnTimer = rand() % 200;
 	cout << "Gen: " << this->respawnTimer << endl;
 	//this->setPosition(200.f, 200.f);
@@ -70,25 +70,25 @@ void Enemy::movement()
 		}
 	}
 }
-int Enemy::genSpawnX()
+int Enemy::genSpawnX(int width)
 {
-	int num = abs(1920*sin(rand() *.05));
+	int num = abs(width*sin(rand() *.05));
 	//cout << "Random location: " << num << endl;
 	return (num);
 }
-int Enemy::genSpawnY()
+int Enemy::genSpawnY(int height)
 {
-	int num = abs(1080* sin(rand() * .05));
+	int num = abs(height* sin(rand() * .05));
 	//cout << "Random location: " << num << endl;
 	return (num);
 }
-void Enemy::checkDespawn()
+void Enemy::checkDespawn(int width, int height)
 {
 	
-	if (this->getPosition().y > 1410.f)
+	if (this->getPosition().y > (float)(height + (height/3)))
 	{
 		this->isDrawn = false;
-		this->setPosition(Vector2f(this->genSpawnX(), 0.f));
+		this->setPosition(Vector2f(this->genSpawnX(width), 0.f));
 		this->movement();
 		this->respawnTimer = (int)(abs(300*sin(rand())));
 	}

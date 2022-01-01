@@ -1,7 +1,7 @@
 #include "Shooter.h"
-void Shooter::initEnemy()
+void Shooter::initEnemy(int width, int height)
 {
-	this->setPosition(Vector2f(this->genSpawnX(), this->genSpawnY()));
+	this->setPosition(Vector2f(this->genSpawnX(width), this->genSpawnY(height)));
 	//this->setPosition(200.f, 200.f);
 	this->respawnTimer = rand() % 200;
 
@@ -28,7 +28,7 @@ void Shooter::initTail()
 	this->tail2.setPosition(this->getPosition());
 	this->tail3.setPosition(this->getPosition());
 }
-void Shooter::movement(Shooter shooter[4])
+void Shooter::movement(Shooter shooter[4], int width, int height)
 {
 	this->rotate(3);
 	this->tail1.rotate(5);
@@ -212,9 +212,9 @@ void Shooter::movement(Shooter shooter[4])
 		this->setPosition(0.f, this->getPosition().y);
 		this->randMove = 0;
 	}
-	if (this->getPosition().x >= 1920.f)
+	if (this->getPosition().x >= (float)width)
 	{
-		this->setPosition(1920.f, this->getPosition().y);
+		this->setPosition((float)width, this->getPosition().y);
 		this->randMove = 1;
 	}
 	if (this->getPosition().y <= 0.f)
@@ -222,9 +222,9 @@ void Shooter::movement(Shooter shooter[4])
 		this->setPosition(this->getPosition().x, 0.f);
 		this->randMove = 2;
 	}
-	if (this->getPosition().y >= 1080.f)
+	if (this->getPosition().y >= (float)height)
 	{
-		this->setPosition(this->getPosition().x, 1080.f);
+		this->setPosition(this->getPosition().x, (float)height);
 		this->randMove = 3;
 	}
 

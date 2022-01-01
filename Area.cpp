@@ -18,9 +18,9 @@ void Area::initTail()
 	this->tail2.setPosition(this->getPosition());
 	this->tail3.setPosition(this->getPosition());
 }
-void Area::initEnemy()
+void Area::initEnemy(int width, int height)
 {
-	this->setPosition(Vector2f(this->genSpawnX(), this->genSpawnY()));
+	this->setPosition(Vector2f(this->genSpawnX(width), this->genSpawnY(height)));
 	//this->setPosition(200.f, 200.f);
 	this->respawnTimer = rand() % 200;
 
@@ -161,12 +161,12 @@ void Area::movement(Area area[5])
 		}
 	}
 }
-void Area::checkDespawn()
+void Area::checkDespawn(int width)
 {
 	if (this->lifeClock == 600)
 	{
 		this->isDrawn = false;
-		this->setPosition(Vector2f(this->genSpawnX(), 0.f));
+		this->setPosition(Vector2f(this->genSpawnX(width), 0.f));
 		this->respawnTimer = 300;
 
 		this->lifeClock = 0;

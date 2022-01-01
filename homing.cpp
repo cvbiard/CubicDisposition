@@ -19,9 +19,9 @@ void Homing::initTail()
 	this->tail2.setPosition(this->getPosition());
 	this->tail3.setPosition(this->getPosition());
 }
-void Homing::initEnemy()
+void Homing::initEnemy(int width, int height)
 {
-	this->setPosition(Vector2f(this->genSpawnX(), this->genSpawnX()));
+	this->setPosition(Vector2f(this->genSpawnX(width), this->genSpawnX(height)));
 	//this->setPosition(200.f, 200.f);
 	this->respawnTimer = rand() % 200;
 
@@ -157,12 +157,12 @@ void Homing::movement(Homing homing[5])
 		}
 	}
 }
-void Homing::checkDespawn()
+void Homing::checkDespawn(int width)
 {
 	if (this->lifeClock == 600)
 	{
 		this->isDrawn = false;
-		this->setPosition(Vector2f(this->genSpawnX(), 0.f));
+		this->setPosition(Vector2f(this->genSpawnX(width), 0.f));
 		this->respawnTimer = 300;
 
 		this->lifeClock = 0;

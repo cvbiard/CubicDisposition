@@ -4,9 +4,9 @@
 class Shooter: public Enemy
 {
 public:
-	void initEnemy();
+	void initEnemy(int width, int height);
 	void initTail();
-	void movement(Shooter shooter[4]);
+	void movement(Shooter shooter[4], int width, int height);
 	int speed = 2;
 	int tailSpeed = 3;
 private:

@@ -25,14 +25,17 @@ public:
 	void initCharacter();
 	void initFont();
 	void initAudio();
-	void initFlash();
+	void initFlash(int width, int height);
 	void updateFlash();
 	void playTrack();
 	void updateBeatClock();
 	void initText(RenderWindow* window);
 	void jitterStart();
+	void initWindowSize(int width, int height);
 	bool jitter = false;
 	bool firstPlay = true;
+	int windowWidth;
+	int windowHeight;
 
 	double beatClock = 0.0;
 
@@ -84,7 +87,7 @@ public:
 	Area area[5];
 	Shooter shooter[4];
 
-	void enemyUpdate();
+	void enemyUpdate(int width, int height);
 	void shieldUpdate();
 	void collision();
 	void takeHit();
