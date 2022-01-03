@@ -48,7 +48,7 @@ void Game::initFlash(int width, int height)
 	this->flash.setPosition(0, 0);
 	this->flash.setFillColor(Color(255, 0, 0, 0));
 }
-void Game::updateFlash()
+void Game::updateFlash(float dt)
 {
 	float t = this->timeClock;
 
@@ -61,17 +61,17 @@ void Game::updateFlash()
 	{
 		if (this->life == 3)
 		{
-			this->flash.setFillColor(Color(102, 255, 102, 16 + ((16 * sin((float)((float)(this->timeClock / (float)(2.35 * 10))))))));
+			this->flash.setFillColor(Color(102, 255, 102, 16 + ((16 * sin((float)((float)((this->timeClock*dt) / (float)(2.35 * 10))))))));
 			this->flashCount = 0;
 		}
 		if (this->life == 2)
 		{
-			this->flash.setFillColor(Color(255, 255, 102, 16 + ((16 * sin((float)((float)(this->timeClock / (float)(2.35 * 10))))))));
+			this->flash.setFillColor(Color(255, 255, 102, 16 + ((16 * sin((float)((float)((this->timeClock * dt) / (float)(2.35 * 10))))))));
 			this->flashCount = 0;
 		}
 		if (this->life == 1)
 		{
-			this->flash.setFillColor(Color(255, 102, 102, 16 + ((16 * sin((float)((float)(this->timeClock / (float)(2.35 * 10))))))));
+			this->flash.setFillColor(Color(255, 102, 102, 16 + ((16 * sin((float)((float)((this->timeClock * dt) / (float)(2.35 * 10))))))));
 			this->flashCount = 0;
 		}
 		
@@ -85,18 +85,18 @@ Game::~Game()
 {
 
 }
-void Game::shieldUpdate()
+void Game::shieldUpdate(float dt)
 {
 	this->takeHit();
-	this->character.rotate(3);
-	this->tail1.rotate(5);
-	this->tail2.rotate(7);
-	this->tail3.rotate(9);
+	this->character.rotate(3*dt);
+	this->tail1.rotate(5 * dt);
+	this->tail2.rotate(7 * dt);
+	this->tail3.rotate(9*dt);
 
 	//this->character.setFillColor(Color(0, 255, 0, abs(255 * sin(this->timeClock * .05 + 1))));
-	this->tail3.setFillColor(Color(255, 255, 0, abs(255 * sin(this->timeClock * .05 +1))));
-	this->tail2.setFillColor(Color(0, 255, 0, abs(255 * sin(this->timeClock * .05+1.5))));
-	this->tail1.setFillColor(Color(0, 0, 255, abs(255 * sin(this->timeClock * .05+2))));
+	this->tail3.setFillColor(Color(255, 255, 0, abs(255 * sin((this->timeClock *dt)* .05 +1))));
+	this->tail2.setFillColor(Color(0, 255, 0, abs(255 * sin((this->timeClock * dt) * .05+1.5))));
+	this->tail1.setFillColor(Color(0, 0, 255, abs(255 * sin((this->timeClock * dt) * .05+2))));
 	
 }
 void Game::updateTimeClock()
@@ -138,7 +138,7 @@ void Game::playTrack()
 
 
 }
-void Game::enemyUpdate(int width, int height)
+void Game::enemyUpdate(int width, int height, float dt)
 {
 
 	if (this->score > 10)
@@ -147,8 +147,8 @@ void Game::enemyUpdate(int width, int height)
 		{
 			if (this->basic[i].isDrawn == true)
 			{
-				this->basic[i].movement();
-				this->basic[i].checkDespawn(this->windowWidth, this->windowHeight);
+				this->basic[i].movement(dt);
+				this->basic[i].checkDespawn(this->windowWidth, this->windowHeight, dt);
 			}
 			if (this->basic[i].isDrawn == false)
 			{
@@ -177,7 +177,7 @@ void Game::enemyUpdate(int width, int height)
 		{
 			if (this->health[i].isDrawn == true)
 			{
-				this->health[i].movement(width, height);
+				this->health[i].movement(width, height, dt);
 				this->health[i].checkDespawn(this->windowWidth);
 			}
 			if (this->health[i].isDrawn == false)

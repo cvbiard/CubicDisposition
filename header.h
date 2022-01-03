@@ -15,6 +15,7 @@
 
 #define playerXSize 25.f
 #define playerYSize 25.f
+#define multi 60.f
 
 
 using namespace sf;

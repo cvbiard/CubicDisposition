@@ -22,16 +22,20 @@ int main(void)
 
 	Menu menu;
 
+
 	std::cout << "Hello world" << std::endl;
 	
 
 	while (menu.running())
 	{
+	
 		menu.game.timeClock = menu.game.timeClock+1;
 		menu.update();
 
 
 		menu.render();
+		menu.dt = menu.clock.restart().asSeconds();
+		menu.reg = menu.dt * multi;
 	}
 	
 

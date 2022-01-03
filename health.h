@@ -9,7 +9,7 @@ public:
 	void initSprite();
 	void initTexture();
 	void initEnemy(int width, int height);
-	void movement(int width, int height);
+	void movement(int width, int height, float dt);
 	int speed = 5;
 	int timeClock = 0;
 	int randMove = 0;

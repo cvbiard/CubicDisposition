@@ -36,18 +36,18 @@ void Enemy::initTail()
 	this->tail3.setFillColor(Color(51, 0, 102, 255));
 
 }
-void Enemy::movement()
+void Enemy::movement(float dt)
 {
-	this->tail3.setPosition(this->tail2.getPosition() + Vector2f(0.f, -50));
-	this->tail2.setPosition(this->tail1.getPosition() + Vector2f(0.f, -50));
-	this->tail1.setPosition(this->getPosition() + Vector2f(0.f, -50));
+	this->tail3.setPosition(this->tail2.getPosition() + Vector2f(0.f, -50*dt));
+	this->tail2.setPosition(this->tail1.getPosition() + Vector2f(0.f, -50 * dt));
+	this->tail1.setPosition(this->getPosition() + Vector2f(0.f, -50 * dt));
 
 	this->rotate(3);
 	this->tail3.rotate(5);
 	this->tail2.rotate(5);
 	this->tail1.rotate(5);
 
-	this->setPosition(this->getPosition()+Vector2f(7-this->randMove, 5.f));
+	this->move(Vector2f(7-this->randMove, 5.f * dt));
 
 	if (this->jitter == true)
 	{
@@ -82,14 +82,14 @@ int Enemy::genSpawnY(int height)
 	//cout << "Random location: " << num << endl;
 	return (num);
 }
-void Enemy::checkDespawn(int width, int height)
+void Enemy::checkDespawn(int width, int height, float dt)
 {
 	
 	if (this->getPosition().y > (float)(height + (height/3)))
 	{
 		this->isDrawn = false;
 		this->setPosition(Vector2f(this->genSpawnX(width), 0.f));
-		this->movement();
+		this->movement(dt);
 		this->respawnTimer = (int)(abs(300*sin(rand())));
 	}
 }

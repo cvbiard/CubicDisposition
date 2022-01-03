@@ -28,7 +28,7 @@ void Health::initTail()
 	this->tail2.setPosition(this->getPosition());
 	this->tail3.setPosition(this->getPosition());
 }
-void Health::movement(int width, int height)
+void Health::movement(int width, int height, float dt)
 {
 
 
@@ -36,19 +36,19 @@ void Health::movement(int width, int height)
 	{
 		if (this->getPosition().x > Mouse::getPosition().x)
 		{
-			this->setPosition(this->getPosition().x + this->speed, this->getPosition().y);
+			this->move(Vector2f(this->speed * dt, 0));
 		}
 		if (this->getPosition().x < Mouse::getPosition().x)
 		{
-			this->setPosition(this->getPosition().x - this->speed, this->getPosition().y);
+			this->move(Vector2f(-this->speed * dt, 0));
 		}
 		if (this->getPosition().y > Mouse::getPosition().y)
 		{
-			this->setPosition(this->getPosition().x, this->getPosition().y + this->speed);
+			this->move(Vector2f(0, this->speed * dt));
 		}
 		if (this->getPosition().y < Mouse::getPosition().y)
 		{
-			this->setPosition(this->getPosition().x, this->getPosition().y - this->speed);
+			this->move(Vector2f(0, -this->speed * dt));
 		}
 	}
 	else
@@ -57,16 +57,16 @@ void Health::movement(int width, int height)
 		{
 		case 0:
 
-			this->setPosition(Vector2f(this->getPosition().x + this->speed, this->getPosition().y));
+			this->move(Vector2f(this->speed*dt, 0));
 			break;
 		case 1:
-			this->setPosition(Vector2f(this->getPosition().x - this->speed, this->getPosition().y));
+			this->move(Vector2f(-this->speed * dt, 0));
 			break;
 		case 2:
-			this->setPosition(Vector2f(this->getPosition().x, this->getPosition().y + this->speed));
+			this->move(Vector2f(0, this->speed * dt));
 			break;
 		case 3:
-			this->setPosition(Vector2f(this->getPosition().x, this->getPosition().y - this->speed));
+			this->move(Vector2f(0, -this->speed * dt));
 			break;
 		}
 	}

@@ -26,7 +26,7 @@ public:
 	void initFont();
 	void initAudio();
 	void initFlash(int width, int height);
-	void updateFlash();
+	void updateFlash(float dt);
 	void playTrack();
 	void updateBeatClock();
 	void initText(RenderWindow* window);
@@ -87,8 +87,8 @@ public:
 	Area area[5];
 	Shooter shooter[4];
 
-	void enemyUpdate(int width, int height);
-	void shieldUpdate();
+	void enemyUpdate(int width, int height, float dt);
+	void shieldUpdate(float dt);
 	void collision();
 	void takeHit();
 	void scoreUpdate();

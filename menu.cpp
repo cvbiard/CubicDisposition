@@ -28,7 +28,7 @@ void Menu::initWindow()
 
 	this->window = new RenderWindow(VideoMode(), "Cubic Disposition", Style::Fullscreen);
 
-	this->window->setFramerateLimit(60);
+	this->window->setFramerateLimit(240);
 }
 void Menu::initFont()
 {
@@ -125,9 +125,9 @@ void Menu::update()
 
 		this->game.playTrack();
 		this->game.updateBeatClock();
-		this->game.enemyUpdate(this->window->getSize().x, this->window->getSize().y);
-		this->game.shieldUpdate();
-		this->game.updateFlash();
+		this->game.enemyUpdate(this->window->getSize().x, this->window->getSize().y, this->reg);
+		this->game.shieldUpdate(this->reg);
+		this->game.updateFlash(this->reg);
 		this->game.updateTimeClock();
 		this->game.scoreUpdate();
 		this->game.collision();

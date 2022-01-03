@@ -29,10 +29,11 @@ public:
 	Text exit;
 	Clock clock;
 	float dt;
-	float multiplier = 60.f;
+	float reg;
 	int state = 0;
 
 	Game game;
+
 
 	void update();
 	void render();
