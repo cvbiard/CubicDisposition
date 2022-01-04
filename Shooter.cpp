@@ -28,66 +28,78 @@ void Shooter::initTail()
 	this->tail2.setPosition(this->getPosition());
 	this->tail3.setPosition(this->getPosition());
 }
-void Shooter::movement(Shooter shooter[4], int width, int height)
+void Shooter::movement(Shooter shooter[4], int width, int height, float dt)
 {
-	this->rotate(3);
-	this->tail1.rotate(5);
-	this->tail2.rotate(7);
-	this->tail3.rotate(9);
+	this->rotate(3*dt);
+	this->tail1.rotate(5*dt);
+	this->tail2.rotate(7*dt);
+	this->tail3.rotate(9*dt);
 	if (abs(this->tail1.getPosition().x - Mouse::getPosition().x) < 200 && abs(this->tail1.getPosition().y - Mouse::getPosition().y) < 200)
 	{
 	//Tail 3
 	if (this->tail3.getPosition().x > this->tail2.getPosition().x)
 	{
-		this->tail3.setPosition(this->tail3.getPosition().x - this->tailSpeed * 0.08, this->tail3.getPosition().y);
+		//this->tail3.setPosition(this->tail3.getPosition().x - this->tailSpeed * 0.08, this->tail3.getPosition().y);
+		this->tail3.move((-this->tailSpeed * .08) * dt, 0.f);
 	}
 	if (this->tail3.getPosition().x < this->tail2.getPosition().x)
 	{
-		this->tail3.setPosition(this->tail3.getPosition().x + this->tailSpeed * .08, this->tail3.getPosition().y);
+		//this->tail3.setPosition(this->tail3.getPosition().x + this->tailSpeed * .08, this->tail3.getPosition().y);
+		this->tail3.move((this->tailSpeed * .08) * dt, 0.f);
 	}
 	if (this->tail3.getPosition().y > this->tail2.getPosition().y)
 	{
-		this->tail3.setPosition(this->tail3.getPosition().x, this->tail3.getPosition().y - this->tailSpeed * .08);
+		//this->tail3.setPosition(this->tail3.getPosition().x, this->tail3.getPosition().y - this->tailSpeed * .08);
+		this->tail3.move(0.f, (-this->tailSpeed * .08) * dt);
 	}
 	if (this->tail3.getPosition().y < this->tail2.getPosition().y)
 	{
-		this->tail3.setPosition(this->tail3.getPosition().x, this->tail3.getPosition().y + this->tailSpeed * .08);
+		//this->tail3.setPosition(this->tail3.getPosition().x, this->tail3.getPosition().y + this->tailSpeed * .08);
+		this->tail3.move(0.f, (this->tailSpeed * .08) * dt);
 	}
 
 	//Tail 2
 	if (this->tail2.getPosition().x > this->tail1.getPosition().x)
 	{
-		this->tail2.setPosition(this->tail2.getPosition().x - this->tailSpeed * 0.09, this->tail2.getPosition().y);
+		//this->tail2.setPosition(this->tail2.getPosition().x - this->tailSpeed * 0.09, this->tail2.getPosition().y);
+		this->tail2.move((-this->tailSpeed * .09) * dt, 0.f);
 	}
 	if (this->tail2.getPosition().x < this->tail1.getPosition().x)
 	{
-		this->tail2.setPosition(this->tail2.getPosition().x + this->tailSpeed * 0.09, this->tail2.getPosition().y);
+		//this->tail2.setPosition(this->tail2.getPosition().x + this->tailSpeed * 0.09, this->tail2.getPosition().y);
+		this->tail2.move((this->tailSpeed * .09) * dt, 0.f);
 	}
 	if (this->tail2.getPosition().y > this->tail1.getPosition().y)
 	{
-		this->tail2.setPosition(this->tail2.getPosition().x, this->tail2.getPosition().y - this->tailSpeed * 0.09);
+		//this->tail2.setPosition(this->tail2.getPosition().x, this->tail2.getPosition().y - this->tailSpeed * 0.09);
+		this->tail2.move(0.f, (-this->tailSpeed * .09) * dt);
 	}
 	if (this->tail2.getPosition().y < this->tail1.getPosition().y)
 	{
-		this->tail2.setPosition(this->tail2.getPosition().x, this->tail2.getPosition().y + this->tailSpeed * 0.09);
+		//this->tail2.setPosition(this->tail2.getPosition().x, this->tail2.getPosition().y + this->tailSpeed * 0.09);
+		this->tail2.move(0.f, (this->tailSpeed * .09) * dt);
 	}
 
 	
 		if (this->tail1.getPosition().x > Mouse::getPosition().x)
 		{
-			this->tail1.setPosition(this->tail1.getPosition().x + this->tailSpeed*0.1, this->tail1.getPosition().y);
+			//this->tail1.setPosition(this->tail1.getPosition().x + this->tailSpeed*0.1, this->tail1.getPosition().y);
+			this->tail1.move((this->tailSpeed * 0.1)*dt, 0.f);
 		}
 		if (this->tail1.getPosition().x < Mouse::getPosition().x)
 		{
-			this->tail1.setPosition(this->tail1.getPosition().x - this->tailSpeed * 0.1, this->tail1.getPosition().y);
+			//this->tail1.setPosition(this->tail1.getPosition().x - this->tailSpeed * 0.1, this->tail1.getPosition().y);
+			this->tail1.move(-(this->tailSpeed * 0.1) * dt, 0.f);
 		}
 		if (this->tail1.getPosition().y > Mouse::getPosition().y)
 		{
-			this->tail1.setPosition(this->tail1.getPosition().x, this->tail1.getPosition().y + this->tailSpeed * 0.1);
+			//this->tail1.setPosition(this->tail1.getPosition().x, this->tail1.getPosition().y + this->tailSpeed * 0.1);
+			this->tail1.move(0.f,(this->tailSpeed * 0.1) * dt);
 		}
 		if (this->tail1.getPosition().y < Mouse::getPosition().y)
 		{
-			this->tail1.setPosition(this->tail1.getPosition().x, this->tail1.getPosition().y - this->tailSpeed * 0.1);
+			//this->tail1.setPosition(this->tail1.getPosition().x, this->tail1.getPosition().y - this->tailSpeed * 0.1);
+			this->tail1.move(0.f, -(this->tailSpeed * 0.1) * dt);
 		}
 
 
@@ -108,54 +120,66 @@ void Shooter::movement(Shooter shooter[4], int width, int height)
 		//Tail 3
 		if (this->tail3.getPosition().x > this->tail2.getPosition().x)
 		{
-			this->tail3.setPosition(this->tail3.getPosition().x - this->tailSpeed * .8, this->tail3.getPosition().y);
+			//this->tail3.setPosition(this->tail3.getPosition().x - this->tailSpeed * .8, this->tail3.getPosition().y);
+			this->tail3.move((-this->tailSpeed * 0.8) * dt, 0.f);
 		}
 		if (this->tail3.getPosition().x < this->tail2.getPosition().x)
 		{
-			this->tail3.setPosition(this->tail3.getPosition().x + this->tailSpeed * .8, this->tail3.getPosition().y);
+			//this->tail3.setPosition(this->tail3.getPosition().x + this->tailSpeed * .8, this->tail3.getPosition().y);
+			this->tail3.move((this->tailSpeed * 0.8) * dt, 0.f);
 		}
 		if (this->tail3.getPosition().y > this->tail2.getPosition().y)
 		{
-			this->tail3.setPosition(this->tail3.getPosition().x, this->tail3.getPosition().y - this->tailSpeed * .8);
+			//this->tail3.setPosition(this->tail3.getPosition().x, this->tail3.getPosition().y - this->tailSpeed * .8);
+			this->tail3.move(0.f, (-this->tailSpeed * 0.8) * dt);
 		}
 		if (this->tail3.getPosition().y < this->tail2.getPosition().y)
 		{
-			this->tail3.setPosition(this->tail3.getPosition().x, this->tail3.getPosition().y + this->tailSpeed * .8);
+			//this->tail3.setPosition(this->tail3.getPosition().x, this->tail3.getPosition().y + this->tailSpeed * .8);
+			this->tail3.move(0.f, (this->tailSpeed * 0.8) * dt);
 		}
 
 		//Tail 2
 		if (this->tail2.getPosition().x > this->tail1.getPosition().x)
 		{
-			this->tail2.setPosition(this->tail2.getPosition().x - this->tailSpeed * 0.9, this->tail2.getPosition().y);
+			//this->tail2.setPosition(this->tail2.getPosition().x - this->tailSpeed * 0.9, this->tail2.getPosition().y);
+			this->tail2.move((-this->tailSpeed * 0.9) * dt, 0.f);
 		}
 		if (this->tail2.getPosition().x < this->tail1.getPosition().x)
 		{
-			this->tail2.setPosition(this->tail2.getPosition().x + this->tailSpeed * 0.9, this->tail2.getPosition().y);
+			//this->tail2.setPosition(this->tail2.getPosition().x + this->tailSpeed * 0.9, this->tail2.getPosition().y);
+			this->tail2.move((this->tailSpeed * 0.9)* dt, 0.f);
 		}
 		if (this->tail2.getPosition().y > this->tail1.getPosition().y)
 		{
-			this->tail2.setPosition(this->tail2.getPosition().x, this->tail2.getPosition().y - this->tailSpeed * 0.9);
+			//this->tail2.setPosition(this->tail2.getPosition().x, this->tail2.getPosition().y - this->tailSpeed * 0.9);
+			this->tail2.move(0.f, (-this->tailSpeed * 0.9)* dt);
 		}
 		if (this->tail2.getPosition().y < this->tail1.getPosition().y)
 		{
-			this->tail2.setPosition(this->tail2.getPosition().x, this->tail2.getPosition().y + this->tailSpeed * 0.9);
+			//this->tail2.setPosition(this->tail2.getPosition().x, this->tail2.getPosition().y + this->tailSpeed * 0.9);
+			this->tail2.move(0.f, (this->tailSpeed * 0.9)* dt);
 		}
 		//Tail 1
 		if (this->tail1.getPosition().x > Mouse::getPosition().x)
 		{
-			this->tail1.setPosition(this->tail1.getPosition().x - this->tailSpeed, this->tail1.getPosition().y);
+			//this->tail1.setPosition(this->tail1.getPosition().x - this->tailSpeed, this->tail1.getPosition().y);
+			this->tail1.move(-this->tailSpeed*dt, 0.f);
 		}
 		if (this->tail1.getPosition().x < Mouse::getPosition().x)
 		{
-			this->tail1.setPosition(this->tail1.getPosition().x + this->tailSpeed, this->tail1.getPosition().y);
+			//this->tail1.setPosition(this->tail1.getPosition().x + this->tailSpeed, this->tail1.getPosition().y);
+			this->tail1.move(this->tailSpeed * dt, 0.f);
 		}
 		if (this->tail1.getPosition().y > Mouse::getPosition().y)
 		{
-			this->tail1.setPosition(this->tail1.getPosition().x, this->tail1.getPosition().y - this->tailSpeed);
+			//this->tail1.setPosition(this->tail1.getPosition().x, this->tail1.getPosition().y - this->tailSpeed);
+			this->tail1.move(0.f, -this->tailSpeed * dt);
 		}
 		if (this->tail1.getPosition().y < Mouse::getPosition().y)
 		{
-			this->tail1.setPosition(this->tail1.getPosition().x, this->tail1.getPosition().y + this->tailSpeed);
+			//this->tail1.setPosition(this->tail1.getPosition().x, this->tail1.getPosition().y + this->tailSpeed);
+			this->tail1.move(0.f, this->tailSpeed * dt);
 		}
 	}	
 
@@ -169,19 +193,23 @@ void Shooter::movement(Shooter shooter[4], int width, int height)
 		{
 			if (this->tail1.getPosition().x > shooter[i].tail1.getPosition().x)
 			{
-				this->tail1.setPosition(Vector2f(this->tail1.getPosition().x + 3, this->tail1.getPosition().y));
+				//this->tail1.setPosition(Vector2f(this->tail1.getPosition().x + 3, this->tail1.getPosition().y));
+				this->tail1.move(3.f, 0.f);
 			}
 			if (this->tail1.getPosition().x < shooter[i].tail1.getPosition().x)
 			{
-				this->tail1.setPosition(Vector2f(this->tail1.getPosition().x - 3, this->tail1.getPosition().y));
+				//this->tail1.setPosition(Vector2f(this->tail1.getPosition().x - 3, this->tail1.getPosition().y));
+				this->tail1.move(-3.f, 0.f);
 			}
 			if (this->tail1.getPosition().y > shooter[i].tail1.getPosition().y)
 			{
-				this->tail1.setPosition(Vector2f(this->tail1.getPosition().x, this->tail1.getPosition().y + 3));
+				//this->tail1.setPosition(Vector2f(this->tail1.getPosition().x, this->tail1.getPosition().y + 3));
+				this->tail1.move(0.f, 3.f);
 			}
 			if (this->tail1.getPosition().y < shooter[i].tail1.getPosition().y)
 			{
-				this->tail1.setPosition(Vector2f(this->tail1.getPosition().x, this->tail1.getPosition().y - 3));
+				//this->tail1.setPosition(Vector2f(this->tail1.getPosition().x, this->tail1.getPosition().y - 3));
+				this->tail1.move(0.f, -3.f);
 			}
 		}
 	}

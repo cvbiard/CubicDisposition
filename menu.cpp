@@ -131,7 +131,7 @@ void Menu::update()
 		this->game.updateTimeClock();
 		this->game.scoreUpdate();
 		this->game.collision();
-		this->game.bomb.updateBomb();
+		this->game.bomb.updateBomb(this->reg);
 
 		if (this->game.life <= 0)
 		{

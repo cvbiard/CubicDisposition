@@ -23,7 +23,7 @@ public:
 	Sound BombSound;
 
 	void initBomb();
-	void updateBomb();
+	void updateBomb(float dt);
 	void updateEffects();
 private:
 

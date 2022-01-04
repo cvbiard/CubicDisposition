@@ -4,7 +4,7 @@
 class Area: public Enemy
 {
 public:
-	void movement(Area area[5]);
+	void movement(Area area[5], float dt);
 	void initEnemy(int width, int height);
 	int speed = 5;
 	int lifeClock = 0;

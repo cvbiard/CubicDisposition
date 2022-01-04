@@ -20,7 +20,7 @@ void Bomb::initBomb()
 
 	this->updateEffects();
 }
-void Bomb::updateBomb()
+void Bomb::updateBomb(float dt)
 {
 	if (this->dropped == true)
 	{
@@ -46,14 +46,14 @@ void Bomb::updateBomb()
 				this->BombSound.play();
 			}
 			this->damage = true;
-			this->visual.setSize(this->visual.getSize() + Vector2f(3, 3));
+			this->visual.setSize(this->visual.getSize() + (Vector2f(3, 3)));
 			this->visual.setFillColor(Color(this->visual.getFillColor().r, this->visual.getFillColor().g, this->visual.getFillColor().b, this->visual.getFillColor().a-5));
-			this->visual.setRotation(this->visual.getRotation()+5);
+			this->visual.setRotation((this->visual.getRotation()+5)*dt);
 
-			this->square1.setRotation(this->square1.getRotation() + 5);
-			this->square2.setRotation(this->square2.getRotation() + 6);
-			this->square3.setRotation(this->square3.getRotation() + 7);
-			this->square4.setRotation(this->square4.getRotation() + 10);
+			this->square1.setRotation((this->square1.getRotation() + 5)*dt);
+			this->square2.setRotation((this->square2.getRotation() + 6)*dt);
+			this->square3.setRotation((this->square3.getRotation() + 7)*dt);
+			this->square4.setRotation((this->square4.getRotation() + 10)*dt);
 			this->updateEffects();
 		}
 		if (this->count == 100)

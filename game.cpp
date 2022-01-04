@@ -61,7 +61,7 @@ void Game::updateFlash(float dt)
 	{
 		if (this->life == 3)
 		{
-			this->flash.setFillColor(Color(102, 255, 102, 16 + ((16 * sin((float)((float)((this->timeClock*dt) / (float)(2.35 * 10))))))));
+			this->flash.setFillColor(Color(102, 255, 102, 16 + ((16 * sin((float)(((this->timeClock*dt) / (float)(2.35 * 10))))))));
 			this->flashCount = 0;
 		}
 		if (this->life == 2)
@@ -162,7 +162,7 @@ void Game::enemyUpdate(int width, int height, float dt)
 		{
 			if (this->homing[i].isDrawn == true)
 			{
-				this->homing[i].movement(this->homing);
+				this->homing[i].movement(this->homing, dt);
 				//this->homing[i].checkDespawn();
 			}
 			if (this->homing[i].isDrawn == false)
@@ -186,13 +186,13 @@ void Game::enemyUpdate(int width, int height, float dt)
 			}
 		}
 	}
-	if (this->score > 300)
+	if (this->score > 10)
 	{
 		for (int i = 0; i < this->areaCount; i++)
 		{
 			if (this->area[i].isDrawn == true)
 			{
-				this->area[i].movement(this->area);
+				this->area[i].movement(this->area, dt);
 				//this->area[i].checkDespawn();
 			}
 			if (this->area[i].isDrawn == false)
@@ -201,13 +201,13 @@ void Game::enemyUpdate(int width, int height, float dt)
 			}
 		}
 	}
-	if (this->score > 500)
+	if (this->score > 10)
 	{
 		for (int i = 0; i < this->shooterCount; i++)
 		{
 			if (this->shooter[i].isDrawn == true)
 			{
-				this->shooter[i].movement(this->shooter, width, height);
+				this->shooter[i].movement(this->shooter, width, height, dt);
 				//this->area[i].checkDespawn();
 			}
 			if (this->shooter[i].isDrawn == false)

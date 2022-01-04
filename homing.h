@@ -4,7 +4,7 @@
 class Homing: public Enemy
 {
 public:
-	void movement(Homing homing[5]);
+	void movement(Homing homing[5], float dt);
 	void initEnemy(int width, int height);
 	int speed = 5;
 	int lifeClock = 0;

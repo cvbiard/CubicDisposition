@@ -29,84 +29,100 @@ void Homing::initEnemy(int width, int height)
 	this->setOrigin(Vector2f(this->getSize().x / 2, this->getSize().y / 2));
 	this->setFillColor(Color(255, 0, 0, 255));
 }
-void Homing::movement(Homing homing[5])
+void Homing::movement(Homing homing[5], float dt)
 {
-	this->rotate(3);
-	this->tail1.rotate(5);
-	this->tail2.rotate(7);
-	this->tail3.rotate(9);
+	this->rotate(3*dt);
+	this->tail1.rotate(5*dt);
+	this->tail2.rotate(7*dt);
+	this->tail3.rotate(9*dt);
 
 	//Tail 3
 	if (this->tail3.getPosition().x > this->tail2.getPosition().x)
 	{
-		this->tail3.setPosition(this->tail3.getPosition().x - this->speed * .7, this->tail3.getPosition().y);
+		//this->tail3.setPosition(this->tail3.getPosition().x - this->speed * .7, this->tail3.getPosition().y);
+		this->tail3.move(( - this->speed * .7)* dt, 0.f);
 	}
 	if (this->tail3.getPosition().x < this->tail2.getPosition().x)
 	{
-		this->tail3.setPosition(this->tail3.getPosition().x + this->speed * .7, this->tail3.getPosition().y);
+		//this->tail3.setPosition(this->tail3.getPosition().x + this->speed * .7, this->tail3.getPosition().y);
+		this->tail3.move((this->speed*.7) * dt, 0.f);
 	}
 	if (this->tail3.getPosition().y > this->tail2.getPosition().y)
 	{
-		this->tail3.setPosition(this->tail3.getPosition().x, this->tail3.getPosition().y - this->speed * .7);
+		//this->tail3.setPosition(this->tail3.getPosition().x, this->tail3.getPosition().y - this->speed * .7);
+		this->tail3.move(0.f,  ( - this->speed * .7) * dt);
 	}
 	if (this->tail3.getPosition().y < this->tail2.getPosition().y)
 	{
-		this->tail3.setPosition(this->tail3.getPosition().x, this->tail3.getPosition().y + this->speed * .7);
+		//this->tail3.setPosition(this->tail3.getPosition().x, this->tail3.getPosition().y + this->speed * .7);
+		this->tail3.move(0.f, (this->speed*.7) * dt);
 	}
 	
 	//Tail 2
 	if (this->tail2.getPosition().x > this->tail1.getPosition().x)
 	{
-		this->tail2.setPosition(this->tail2.getPosition().x - this->speed * 0.8, this->tail2.getPosition().y);
+		//this->tail2.setPosition(this->tail2.getPosition().x - this->speed * 0.8, this->tail2.getPosition().y);
+		this->tail2.move(( - this->speed*.8) * dt, 0.f);
 	}
 	if (this->tail2.getPosition().x < this->tail1.getPosition().x)
 	{
-		this->tail2.setPosition(this->tail2.getPosition().x + this->speed * 0.8, this->tail2.getPosition().y);
+		//this->tail2.setPosition(this->tail2.getPosition().x + this->speed * 0.8, this->tail2.getPosition().y);
+		this->tail2.move((this->speed*.8) * dt, 0.f);
 	}
 	if (this->tail2.getPosition().y > this->tail1.getPosition().y)
 	{
-		this->tail2.setPosition(this->tail2.getPosition().x, this->tail2.getPosition().y - this->speed * 0.8);
+		//this->tail2.setPosition(this->tail2.getPosition().x, this->tail2.getPosition().y - this->speed * 0.8);
+		this->tail2.move(0.f, ( - this->speed*.8)* dt);
 	}
 	if (this->tail2.getPosition().y < this->tail1.getPosition().y)
 	{
-		this->tail2.setPosition(this->tail2.getPosition().x, this->tail2.getPosition().y + this->speed * 0.8);
+		//this->tail2.setPosition(this->tail2.getPosition().x, this->tail2.getPosition().y + this->speed * 0.8);
+		this->tail2.move(0.f, (this->speed*.8) * dt);
 	}
 	
 	//Tail 1
 	if (this->tail1.getPosition().x > this->getPosition().x)
 	{
-		this->tail1.setPosition(this->tail1.getPosition().x - this->speed*.9, this->tail1.getPosition().y);
+		//this->tail1.setPosition(this->tail1.getPosition().x - this->speed*.9, this->tail1.getPosition().y);
+		this->tail1.move(( - this->speed*.9)* dt, 0.f);
 	}
 	if (this->tail1.getPosition().x < this->getPosition().x)
 	{
-		this->tail1.setPosition(this->tail1.getPosition().x + this->speed * 0.9, this->tail1.getPosition().y);
+		//this->tail1.setPosition(this->tail1.getPosition().x + this->speed * 0.9, this->tail1.getPosition().y);
+		this->tail1.move((this->speed*.9) * dt, 0.f);
 	}
 	if (this->tail1.getPosition().y > this->getPosition().y)
 	{
-		this->tail1.setPosition(this->tail1.getPosition().x, this->tail1.getPosition().y - this->speed * 0.9);
+		//this->tail1.setPosition(this->tail1.getPosition().x, this->tail1.getPosition().y - this->speed * 0.9);
+		this->tail1.move(0.f, ( - this->speed*.9) * dt);
 	}
 	if (this->tail1.getPosition().y < this->getPosition().y)
 	{
-		this->tail1.setPosition(this->tail1.getPosition().x, this->tail1.getPosition().y + this->speed * 0.9);
+		//this->tail1.setPosition(this->tail1.getPosition().x, this->tail1.getPosition().y + this->speed * 0.9);
+		this->tail1.move(0.f, (this->speed*.9 )* dt);
 	}
 
 
 	//Base square
 	if (this->getPosition().x > Mouse::getPosition().x)
 	{
-		this->setPosition(this->getPosition().x - this->speed, this->getPosition().y);
+		//this->setPosition(this->getPosition().x - this->speed, this->getPosition().y);
+		this->move(-this->speed*dt, 0.f);
 	}
 	if (this->getPosition().x < Mouse::getPosition().x)
 	{
-		this->setPosition(this->getPosition().x + this->speed, this->getPosition().y);
+		//this->setPosition(this->getPosition().x + this->speed, this->getPosition().y);
+		this->move(this->speed * dt, 0.f);
 	}
 	if (this->getPosition().y > Mouse::getPosition().y)
 	{
-		this->setPosition(this->getPosition().x, this->getPosition().y - this->speed);
+		//this->setPosition(this->getPosition().x, this->getPosition().y - this->speed);
+		this->move(0.f, -this->speed * dt);
 	}
 	if (this->getPosition().y < Mouse::getPosition().y)
 	{
-		this->setPosition(this->getPosition().x, this->getPosition().y + this->speed);
+		//this->setPosition(this->getPosition().x, this->getPosition().y + this->speed);
+		this->move(0.f, this->speed * dt);
 	}
 
 	if (this->jitter == true)
@@ -140,19 +156,23 @@ void Homing::movement(Homing homing[5])
 		{
 			if (this->getPosition().x > homing[i].getPosition().x)
 			{
-				this->setPosition(Vector2f(this->getPosition().x + 3, this->getPosition().y));
+				//this->setPosition(Vector2f(this->getPosition().x + 3, this->getPosition().y));
+				this->move(3.f, 0.f);
 			}
 			if (this->getPosition().x < homing[i].getPosition().x)
 			{
-				this->setPosition(Vector2f(this->getPosition().x - 3, this->getPosition().y));
+				//this->setPosition(Vector2f(this->getPosition().x - 3, this->getPosition().y));
+				this->move(-3.f, 0.f);
 			}
 			if (this->getPosition().y > homing[i].getPosition().y)
 			{
-				this->setPosition(Vector2f(this->getPosition().x , this->getPosition().y + 3));
+				//this->setPosition(Vector2f(this->getPosition().x , this->getPosition().y + 3));
+				this->move(0.f, 3.f);
 			}
 			if (this->getPosition().y < homing[i].getPosition().y)
 			{
-				this->setPosition(Vector2f(this->getPosition().x, this->getPosition().y - 3));
+				//this->setPosition(Vector2f(this->getPosition().x, this->getPosition().y - 3));
+				this->move(0.f, -3.f);
 			}
 		}
 	}

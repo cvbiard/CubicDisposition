@@ -10,7 +10,8 @@ Enemy::~Enemy()
 }
 void Enemy::initEnemy(int width, int height)
 {
-	this->setPosition(Vector2f(this->genSpawnX(width), 0.f));
+	//this->setPosition(Vector2f(this->genSpawnX(width), 0.f));
+
 	this->respawnTimer = rand() % 200;
 	cout << "Gen: " << this->respawnTimer << endl;
 	//this->setPosition(200.f, 200.f);
@@ -18,6 +19,7 @@ void Enemy::initEnemy(int width, int height)
 	this->setSize(Vector2f(playerYSize, playerXSize));
 	this->setOrigin(Vector2f(this->getSize().x / 2, this->getSize().y / 2));
 	this->setFillColor(Color(127,0,255,255));
+	this->setPosition(Vector2f(this->genSpawnX(width), 0.f));
 
 }
 void Enemy::initTail()
@@ -42,12 +44,12 @@ void Enemy::movement(float dt)
 	this->tail2.setPosition(this->tail1.getPosition() + Vector2f(0.f, -50 * dt));
 	this->tail1.setPosition(this->getPosition() + Vector2f(0.f, -50 * dt));
 
-	this->rotate(3);
-	this->tail3.rotate(5);
-	this->tail2.rotate(5);
-	this->tail1.rotate(5);
+	this->rotate(3*dt);
+	this->tail3.rotate(5*dt);
+	this->tail2.rotate(5*dt);
+	this->tail1.rotate(5*dt);
 
-	this->move(Vector2f(7-this->randMove, 5.f * dt));
+	this->move(Vector2f(0.f, 5.f * dt));
 
 	if (this->jitter == true)
 	{
@@ -72,7 +74,7 @@ void Enemy::movement(float dt)
 }
 int Enemy::genSpawnX(int width)
 {
-	int num = abs(width*sin(rand() *.05));
+	int num = abs(width*sin(rand()));
 	//cout << "Random location: " << num << endl;
 	return (num);
 }

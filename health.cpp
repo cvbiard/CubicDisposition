@@ -76,10 +76,10 @@ void Health::movement(int width, int height, float dt)
 	this->tail3.setPosition(this->getPosition());
 	this->sprite.setPosition(this->getPosition());
 
-	this->rotate(3);
-	this->tail1.rotate(5);
-	this->tail2.rotate(7);
-	this->tail3.rotate(9);
+	this->rotate(3*dt);
+	this->tail1.rotate(5*dt);
+	this->tail2.rotate(7*dt);
+	this->tail3.rotate(9*dt);
 
 	this->tail3.setFillColor(Color(0, 255, 0, abs(255 * sin(this->timeClock * .05 + 1))));
 	this->tail2.setFillColor(Color(0, 0, 255, abs(255 * sin(this->timeClock * .05 + 1.5))));
