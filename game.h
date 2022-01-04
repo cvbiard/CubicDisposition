@@ -32,6 +32,7 @@ public:
 	void initText(RenderWindow* window);
 	void jitterStart();
 	void initWindowSize(int width, int height);
+	void initScore();
 	bool jitter = false;
 	bool firstPlay = true;
 	int windowWidth;
@@ -91,10 +92,10 @@ public:
 	void shieldUpdate(float dt);
 	void collision();
 	void takeHit();
-	void scoreUpdate();
+	void scoreUpdate(float dt, int framerate);
 	int randomRespawn();
 
-	void updateFrameClock();
+	void updateFrameClock(int framerate);
 	void updateTimeClock();
 
 	void renderText();

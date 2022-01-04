@@ -54,14 +54,14 @@ void Game::updateFlash(float dt)
 
 	if (this->Hurt.getStatus() == Sound::Playing)
 	{
-		this->flash.setFillColor(Color(255, abs(255 * sin(this->flashCount *.05)), abs(255 * sin(this->flashCount *.05)), abs(255 * sin(this->flashCount *.05))));
+		this->flash.setFillColor(Color(255, abs(255 * sin((this->flashCount * dt) *.05)), abs(255 * sin((this->flashCount * dt) *.05)), abs(255 * sin((this->flashCount *dt)*.05))));
 		this->flashCount = this->flashCount + 1;
 	}
 	else
 	{
 		if (this->life == 3)
 		{
-			this->flash.setFillColor(Color(102, 255, 102, 16 + ((16 * sin((float)(((this->timeClock*dt) / (float)(2.35 * 10))))))));
+			this->flash.setFillColor(Color(102, 255, 102, 16 + ((16 * sin((float)((float)((this->timeClock*dt) / (float)(2.35 * 10))))))));
 			this->flashCount = 0;
 		}
 		if (this->life == 2)
@@ -217,11 +217,18 @@ void Game::enemyUpdate(int width, int height, float dt)
 		}
 	}
 }
-void Game::scoreUpdate()
+void Game::initScore()
 {
-	if (this->frameClock == 0 || this->frameClock == 29)
+	string label = "Score: ";
+	this->uiText.setString(label);
+}
+void Game::scoreUpdate(float dt, int framerate)
+{
+	
+	if (this->frameClock*dt == 0 || this->frameClock*dt == framerate/2)
 	{
 		string label = "Score: ";
+		
 		this->score = this->score + 1;
 
 		string intStr = "score number";
@@ -236,11 +243,11 @@ void Game::scoreUpdate()
 	}
 	
 }
-void Game::updateFrameClock()
+void Game::updateFrameClock(int framerate)
 {
 	this->frameClock = this->frameClock + 1;
 
-	if (this->frameClock == 60)
+	if (this->frameClock == framerate)
 	{
 		this->frameClock = 0;
 	}

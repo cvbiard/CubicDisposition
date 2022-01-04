@@ -11,6 +11,7 @@ Menu::Menu()
 	this->game.initText(this->window);
 	this->game.initFlash(this->window->getSize().x, this->window->getSize().y);
 	this->game.initWindowSize(this->window->getSize().x, this->window->getSize().y);
+	this->game.initScore();
 
 
 }
@@ -28,7 +29,8 @@ void Menu::initWindow()
 
 	this->window = new RenderWindow(VideoMode(), "Cubic Disposition", Style::Fullscreen);
 
-	this->window->setFramerateLimit(240);
+	this->window->setFramerateLimit(this->framerate);
+	
 }
 void Menu::initFont()
 {
@@ -76,7 +78,7 @@ void Menu::initText()
 void Menu::update()
 {
 
-	this->game.updateFrameClock();
+	this->game.updateFrameClock(this->framerate);
 	//this->game.updateTimeClock();
 	if (this->game.frameClock == 0 || this->game.frameClock == 30)
 	{
@@ -129,7 +131,7 @@ void Menu::update()
 		this->game.shieldUpdate(this->reg);
 		this->game.updateFlash(this->reg);
 		this->game.updateTimeClock();
-		this->game.scoreUpdate();
+		this->game.scoreUpdate(this->reg, this->framerate);
 		this->game.collision();
 		this->game.bomb.updateBomb(this->reg);
 
