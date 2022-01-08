@@ -12,6 +12,7 @@ Menu::Menu()
 	this->game.initFlash(this->window->getSize().x, this->window->getSize().y);
 	this->game.initWindowSize(this->window->getSize().x, this->window->getSize().y);
 	this->game.initScore();
+	this->game.initEnemies(this->window->getSize().x, this->window->getSize().y);
 
 
 }
@@ -127,13 +128,13 @@ void Menu::update()
 
 		this->game.playTrack();
 		this->game.updateBeatClock();
-		this->game.enemyUpdate(this->window->getSize().x, this->window->getSize().y, this->reg);
-		this->game.shieldUpdate(this->reg);
-		this->game.updateFlash(this->reg);
+		this->game.enemyUpdate(this->window->getSize().x, this->window->getSize().y, this->reg, this->framerate);
+		this->game.shieldUpdate(this->reg, this->framerate);
+		this->game.updateFlash(this->reg, this->framerate);
 		this->game.updateTimeClock();
 		this->game.scoreUpdate(this->reg, this->framerate);
 		this->game.collision();
-		this->game.bomb.updateBomb(this->reg);
+		this->game.bomb.updateBomb(this->reg, this->framerate);
 
 		if (this->game.life <= 0)
 		{

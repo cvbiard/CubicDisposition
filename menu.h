@@ -31,7 +31,7 @@ public:
 	float dt;
 	float reg;
 	int state = 0;
-	int framerate = 240;
+	int framerate = 60;
 
 	Game game;
 

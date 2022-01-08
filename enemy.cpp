@@ -19,7 +19,7 @@ void Enemy::initEnemy(int width, int height)
 	this->setSize(Vector2f(playerYSize, playerXSize));
 	this->setOrigin(Vector2f(this->getSize().x / 2, this->getSize().y / 2));
 	this->setFillColor(Color(127,0,255,255));
-	this->setPosition(Vector2f(this->genSpawnX(width), 0.f));
+	this->setPosition(Vector2f(this->genSpawnX(width), -(height/3)));
 
 }
 void Enemy::initTail()
@@ -40,9 +40,10 @@ void Enemy::initTail()
 }
 void Enemy::movement(float dt)
 {
-	this->tail3.setPosition(this->tail2.getPosition() + Vector2f(0.f, -50*dt));
-	this->tail2.setPosition(this->tail1.getPosition() + Vector2f(0.f, -50 * dt));
-	this->tail1.setPosition(this->getPosition() + Vector2f(0.f, -50 * dt));
+	
+	this->tail3.move(Vector2f(0.f, 4.4 * dt));
+	this->tail2.move(Vector2f(0.f, 4.6 * dt));
+	this->tail1.move(Vector2f(0.f, 4.8 * dt));
 
 	this->rotate(3*dt);
 	this->tail3.rotate(5*dt);
@@ -74,13 +75,13 @@ void Enemy::movement(float dt)
 }
 int Enemy::genSpawnX(int width)
 {
-	int num = abs(width*sin(rand()));
+	int num = (rand()+1)%width;
 	//cout << "Random location: " << num << endl;
 	return (num);
 }
 int Enemy::genSpawnY(int height)
 {
-	int num = abs(height* sin(rand() * .05));
+	int num = (rand()+1)%height;
 	//cout << "Random location: " << num << endl;
 	return (num);
 }
@@ -90,12 +91,12 @@ void Enemy::checkDespawn(int width, int height, float dt)
 	if (this->getPosition().y > (float)(height + (height/3)))
 	{
 		this->isDrawn = false;
-		this->setPosition(Vector2f(this->genSpawnX(width), 0.f));
+		this->setPosition(Vector2f(this->genSpawnX(width), -(height / 3)));
 		this->movement(dt);
 		this->respawnTimer = (int)(abs(300*sin(rand())));
 	}
 }
-void Enemy::checkSpawn()
+void Enemy::checkSpawn(float dt)
 {
 	if (this->respawnTimer == 0)
 	{
@@ -107,6 +108,6 @@ void Enemy::checkSpawn()
 	}
 	if (this->isDrawn == false)
 	{
-		this->respawnTimer = this->respawnTimer - 1;
+		this->respawnTimer = this->respawnTimer - 1 * dt;
 	}
 }

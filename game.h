@@ -24,9 +24,10 @@ public:
 	void initVariables();
 	void initCharacter();
 	void initFont();
+	void initEnemies(int width, int height);
 	void initAudio();
 	void initFlash(int width, int height);
-	void updateFlash(float dt);
+	void updateFlash(float dt, int framerate);
 	void playTrack();
 	void updateBeatClock();
 	void initText(RenderWindow* window);
@@ -88,8 +89,8 @@ public:
 	Area area[5];
 	Shooter shooter[4];
 
-	void enemyUpdate(int width, int height, float dt);
-	void shieldUpdate(float dt);
+	void enemyUpdate(int width, int height, float dt, int framerate);
+	void shieldUpdate(float dt, int framerate);
 	void collision();
 	void takeHit();
 	void scoreUpdate(float dt, int framerate);

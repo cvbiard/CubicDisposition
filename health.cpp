@@ -28,7 +28,7 @@ void Health::initTail()
 	this->tail2.setPosition(this->getPosition());
 	this->tail3.setPosition(this->getPosition());
 }
-void Health::movement(int width, int height, float dt)
+void Health::movement(int width, int height, float dt, int framerate)
 {
 
 
@@ -76,14 +76,14 @@ void Health::movement(int width, int height, float dt)
 	this->tail3.setPosition(this->getPosition());
 	this->sprite.setPosition(this->getPosition());
 
-	this->rotate(3*dt);
-	this->tail1.rotate(5*dt);
-	this->tail2.rotate(7*dt);
-	this->tail3.rotate(9*dt);
+	this->rotate((3*dt));
+	this->tail1.rotate((5*dt));
+	this->tail2.rotate((7*dt));
+	this->tail3.rotate((9*dt));
 
-	this->tail3.setFillColor(Color(0, 255, 0, abs(255 * sin(this->timeClock * .05 + 1))));
-	this->tail2.setFillColor(Color(0, 0, 255, abs(255 * sin(this->timeClock * .05 + 1.5))));
-	this->tail1.setFillColor(Color(0, 0, 255, abs(255 * sin(this->timeClock * .05 + 2))));
+	this->tail3.setFillColor(Color(0, 0, 255, (127 + (64 * sin((1.0 / (framerate / 4)) * ((float)this->timeClock))))));
+	this->tail2.setFillColor(Color(0, 0, 255, (127 + (64 * sin((1.0 / (framerate / 6)) * ((float)this->timeClock))))));
+	this->tail1.setFillColor(Color(0, 0, 255, (127 + (64 * sin((1.0 / (framerate / 8)) * ((float)this->timeClock))))));
 
 	if (this->getPosition().x <= 0.f)
 	{

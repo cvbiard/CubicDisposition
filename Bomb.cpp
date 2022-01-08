@@ -20,7 +20,7 @@ void Bomb::initBomb()
 
 	this->updateEffects();
 }
-void Bomb::updateBomb(float dt)
+void Bomb::updateBomb(float dt, int framerate)
 {
 	if (this->dropped == true)
 	{
@@ -37,26 +37,34 @@ void Bomb::updateBomb(float dt)
 		this->count = this->count + 1;
 		
 		this->visual.setOrigin(Vector2f(this->visual.getGlobalBounds().width / 2, this->visual.getGlobalBounds().height / 2));
-		this->visual.setFillColor(Color(255, abs(255 * sin(this->count * .05)), abs(255 * sin(this->count * .05)), this->visual.getFillColor().a));
+		this->visual.setFillColor(Color(255, (127 + (126 * sin((1.0 / (framerate / 4)) * ((float)this->count)))), (127 + (126 * sin((1.0 / (framerate / 4)) * ((float)this->count)))), this->visual.getFillColor().a));
 		this->updateEffects();
-		if (this->count > 50)
+		if (this->count > framerate)
 		{
 			if (this->BombSound.getStatus() != Sound::Playing)
 			{
 				this->BombSound.play();
 			}
 			this->damage = true;
-			this->visual.setSize(this->visual.getSize() + (Vector2f(3, 3)));
-			this->visual.setFillColor(Color(this->visual.getFillColor().r, this->visual.getFillColor().g, this->visual.getFillColor().b, this->visual.getFillColor().a-5));
-			this->visual.setRotation((this->visual.getRotation()+5)*dt);
+			this->visual.setSize(this->visual.getSize() + (Vector2f(3*dt, 3*dt)));
+			if (this->visual.getFillColor().a >= 1)
+			{
+				this->visual.setFillColor(Color(this->visual.getFillColor().r, this->visual.getFillColor().g, this->visual.getFillColor().b, (this->visual.getFillColor().a - (3 * dt))));
+			}
+			else
+			{
+				this->visual.setFillColor(Color(this->visual.getFillColor().r, this->visual.getFillColor().g, this->visual.getFillColor().b, 0));
+			}
+			
+			this->visual.setRotation((this->visual.getRotation()+5*dt));
 
-			this->square1.setRotation((this->square1.getRotation() + 5)*dt);
-			this->square2.setRotation((this->square2.getRotation() + 6)*dt);
-			this->square3.setRotation((this->square3.getRotation() + 7)*dt);
-			this->square4.setRotation((this->square4.getRotation() + 10)*dt);
+			this->square1.setRotation((this->square1.getRotation() + 5*dt));
+			this->square2.setRotation((this->square2.getRotation() + 6*dt));
+			this->square3.setRotation((this->square3.getRotation() + 7*dt));
+			this->square4.setRotation((this->square4.getRotation() + 10*dt));
 			this->updateEffects();
 		}
-		if (this->count == 100)
+		if (this->count >= framerate *2)
 		{
 			this->damage = false;
 				this->visual.setFillColor(Color(255, 0, 0, 0));
