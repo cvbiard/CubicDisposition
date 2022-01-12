@@ -41,9 +41,10 @@ void Bomb::updateBomb(float dt, int framerate)
 		this->updateEffects();
 		if (this->count > framerate)
 		{
-			if (this->BombSound.getStatus() != Sound::Playing)
+			if (this->BombSound.getStatus() != Sound::Playing&& this->played == false)
 			{
 				this->BombSound.play();
+				this->played = true;
 			}
 			this->damage = true;
 			this->visual.setSize(this->visual.getSize() + (Vector2f(3*dt, 3*dt)));
@@ -80,6 +81,7 @@ void Bomb::updateBomb(float dt, int framerate)
 
 				this->dealt = false;
 				this->explode = false;
+				this->played = false;
 				this->count = 0;
 			
 			

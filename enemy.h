@@ -17,11 +17,11 @@ public:
 	int randMove = 0;
 	virtual void initTail();
 	Enemy();
-	virtual void movement(float dt);
+	virtual void movement(float dt, int framerate);
 	int genSpawnY(int height);
 	int genSpawnX(int width);
 	void checkSpawn(float dt);
-	virtual void checkDespawn(int width, int height, float dt);
+	virtual void checkDespawn(int width, int height, float dt, int framerate);
 	virtual ~Enemy();
 	virtual void initEnemy(int width, int height);
 };

@@ -29,7 +29,7 @@ void Homing::initEnemy(int width, int height)
 	this->setOrigin(Vector2f(this->getSize().x / 2, this->getSize().y / 2));
 	this->setFillColor(Color(255, 0, 0, 255));
 }
-void Homing::movement(Homing homing[5], float dt)
+void Homing::movement(Homing homing[5], float dt, int framerate)
 {
 	this->rotate(3*dt);
 	this->tail1.rotate(5*dt);
@@ -139,7 +139,7 @@ void Homing::movement(Homing homing[5], float dt)
 			break;
 		}
 
-		if (this->jitterCount >= 50)
+		if (this->jitterCount >= framerate)
 		{
 			this->jitterCount = 0;
 			this->jitter = false;

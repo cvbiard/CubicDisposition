@@ -120,7 +120,7 @@ void Health::movement(int width, int height, float dt, int framerate)
 			break;
 		}
 
-		if (this->jitterCount >= 50)
+		if (this->jitterCount >= framerate)
 		{
 			this->jitterCount = 0;
 			this->jitter = false;

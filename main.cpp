@@ -5,7 +5,7 @@
 //To do:
 //1. Fix screen size related bugs - DONE
 //2. Framerate independent gameplay - DONE
-//3. Options
+//3. Options - DONE
 //4. Balance
 //5. Installer
 

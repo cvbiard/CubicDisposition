@@ -38,7 +38,7 @@ void Enemy::initTail()
 	this->tail3.setFillColor(Color(51, 0, 102, 255));
 
 }
-void Enemy::movement(float dt)
+void Enemy::movement(float dt, int framerate)
 {
 	
 	this->tail3.move(Vector2f(0.f, 4.4 * dt));
@@ -58,15 +58,17 @@ void Enemy::movement(float dt)
 		{
 		case 0:
 			this->setPosition(this->getPosition().x + jitterSize, this->getPosition().y);
+			//this->move(jitterSize*dt, 0.f);
 			this->jitterCount = this->jitterCount + 1;
 			break;
 		case 1:
 			this->setPosition(this->getPosition().x - jitterSize, this->getPosition().y);
+			//this->move(-jitterSize*dt, 0.f);
 			this->jitterCount = this->jitterCount + 1;
 			break;
 		}
 
-		if (this->jitterCount >= 50)
+		if (this->jitterCount >= framerate)
 		{
 			this->jitterCount = 0;
 			this->jitter = false;
@@ -85,14 +87,14 @@ int Enemy::genSpawnY(int height)
 	//cout << "Random location: " << num << endl;
 	return (num);
 }
-void Enemy::checkDespawn(int width, int height, float dt)
+void Enemy::checkDespawn(int width, int height, float dt, int framerate)
 {
 	
 	if (this->getPosition().y > (float)(height + (height/3)))
 	{
 		this->isDrawn = false;
 		this->setPosition(Vector2f(this->genSpawnX(width), -(height / 3)));
-		this->movement(dt);
+		this->movement(dt, framerate);
 		this->respawnTimer = (int)(abs(300*sin(rand())));
 	}
 }

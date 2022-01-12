@@ -8,6 +8,7 @@ public:
 	bool dropped;
 	bool damage;
 	bool dealt;
+	bool played = false;
 	int count = 0;
 
 	Bomb();

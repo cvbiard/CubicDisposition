@@ -28,7 +28,7 @@ void Shooter::initTail()
 	this->tail2.setPosition(this->getPosition());
 	this->tail3.setPosition(this->getPosition());
 }
-void Shooter::movement(Shooter shooter[4], int width, int height, float dt)
+void Shooter::movement(Shooter shooter[4], int width, int height, float dt, int framerate)
 {
 	this->rotate(3*dt);
 	this->tail1.rotate(5*dt);
@@ -271,7 +271,7 @@ void Shooter::movement(Shooter shooter[4], int width, int height, float dt)
 			break;
 		}
 
-		if (this->jitterCount >= 50)
+		if (this->jitterCount >= framerate)
 		{
 			this->jitterCount = 0;
 			this->jitter = false;

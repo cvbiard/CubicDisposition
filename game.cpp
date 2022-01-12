@@ -102,6 +102,31 @@ void Game::shieldUpdate(float dt, int framerate)
 	this->tail3.setFillColor(Color(255, 255, 0, (127 + (64 * sin((1.0 / (framerate/4)) * ((float)this->timeClock))))));
 	this->tail2.setFillColor(Color(0, 255, 0, (127 + (64 * sin((1.0 / (framerate/6)) * ((float)this->timeClock))))));
 	this->tail1.setFillColor(Color(0, 0, 255, (127 + (64 * sin((1.0 / (framerate/8)) * ((float)this->timeClock))))));
+
+	if (this->jitter == true)
+	{
+		switch (jitterCount % 2)
+		{
+		case 0:
+			this->tail1.setPosition(this->tail1.getPosition().x + jitterSize, this->tail1.getPosition().y);
+			this->tail2.setPosition(this->tail2.getPosition().x + jitterSize, this->tail2.getPosition().y);
+			this->tail3.setPosition(this->tail3.getPosition().x + jitterSize, this->tail3.getPosition().y);
+			this->jitterCount = this->jitterCount + 1;
+			break;
+		case 1:
+			this->tail1.setPosition(this->tail1.getPosition().x - jitterSize, this->tail1.getPosition().y);
+			this->tail2.setPosition(this->tail2.getPosition().x - jitterSize, this->tail2.getPosition().y);
+			this->tail3.setPosition(this->tail3.getPosition().x - jitterSize, this->tail3.getPosition().y);
+			this->jitterCount = this->jitterCount + 1;
+			break;
+		}
+
+		if (this->jitterCount >= framerate)
+		{
+			this->jitterCount = 0;
+			this->jitter = false;
+		}
+	}
 	
 }
 void Game::updateTimeClock()
@@ -152,8 +177,8 @@ void Game::enemyUpdate(int width, int height, float dt, int framerate)
 		{
 			if (this->basic[i].isDrawn == true)
 			{
-				this->basic[i].movement(dt);
-				this->basic[i].checkDespawn(this->windowWidth, this->windowHeight, dt);
+				this->basic[i].movement(dt, framerate);
+				this->basic[i].checkDespawn(this->windowWidth, this->windowHeight, dt, framerate);
 			}
 			if (this->basic[i].isDrawn == false)
 			{
@@ -167,7 +192,7 @@ void Game::enemyUpdate(int width, int height, float dt, int framerate)
 		{
 			if (this->homing[i].isDrawn == true)
 			{
-				this->homing[i].movement(this->homing, dt);
+				this->homing[i].movement(this->homing, dt, framerate);
 				//this->homing[i].checkDespawn();
 			}
 			if (this->homing[i].isDrawn == false)
@@ -197,7 +222,7 @@ void Game::enemyUpdate(int width, int height, float dt, int framerate)
 		{
 			if (this->area[i].isDrawn == true)
 			{
-				this->area[i].movement(this->area, dt);
+				this->area[i].movement(this->area, dt, framerate);
 				//this->area[i].checkDespawn();
 			}
 			if (this->area[i].isDrawn == false)
@@ -212,7 +237,7 @@ void Game::enemyUpdate(int width, int height, float dt, int framerate)
 		{
 			if (this->shooter[i].isDrawn == true)
 			{
-				this->shooter[i].movement(this->shooter, width, height, dt);
+				this->shooter[i].movement(this->shooter, width, height, dt, framerate);
 				//this->area[i].checkDespawn();
 			}
 			if (this->shooter[i].isDrawn == false)
@@ -314,6 +339,24 @@ void Game::initAudio()
 	this->Lead1Tail.setVolume(0);
 	this->Lead2Tail.setVolume(0);
 	this->Lead3Tail.setVolume(0);
+}
+void Game::updateAudio()
+{
+	this->Kick.setVolume(75.f*this->volumeMulti);
+	this->BassSynth.setVolume(75.f * this->volumeMulti);
+	this->Lead1.setVolume(75.f * this->volumeMulti);
+	this->Lead2.setVolume(75.f * this->volumeMulti);
+	this->Lead3.setVolume(75.f * this->volumeMulti);
+	this->Pad.setVolume(75.f * this->volumeMulti);
+
+	this->bomb.BombSound.setVolume(100.f*this->sfxMulti);
+	this->DropBomb.setVolume(100.f * this->sfxMulti);
+	this->Heal.setVolume(100.f * this->sfxMulti);
+	this->Hurt.setVolume(100.f * this->sfxMulti);
+	this->EnemyDie.setVolume(25.f * this->sfxMulti);
+
+	this->Start.setVolume(100.f * this->sfxMulti);
+	this->Rollover.setVolume(100.f * this->sfxMulti);
 }
 void Game::initFont()
 {

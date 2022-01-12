@@ -34,6 +34,7 @@ public:
 	void jitterStart();
 	void initWindowSize(int width, int height);
 	void initScore();
+	void updateAudio();
 	bool jitter = false;
 	bool firstPlay = true;
 	int windowWidth;
@@ -42,6 +43,8 @@ public:
 	double beatClock = 0.0;
 
 	int jitterCount = 0;
+	float volumeMulti = 1.0;
+	float sfxMulti = 1.0;
 	int jitterSize = 10;
 	int flashCount = 0;
 	int life = 3;
