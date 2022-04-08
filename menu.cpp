@@ -658,13 +658,13 @@ void Menu::checkClick()
 		if (this->music == false)
 		{
 			this->music = true;
-			this->game.volumeMulti = 1.0;
+			this->game.volumeMulti = 1.0f;
 			this->game.updateAudio();
 		}
 		else if (this->music == true)
 		{
 			this->music = false;
-			this->game.volumeMulti = 0.0;
+			this->game.volumeMulti = 0.0f;
 			this->game.updateAudio();
 		}
 	}

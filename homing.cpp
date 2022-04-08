@@ -23,7 +23,7 @@ void Homing::initEnemy(int width, int height)
 {
 	this->setPosition(Vector2f(this->genSpawnX(width), this->genSpawnX(height)));
 	//this->setPosition(200.f, 200.f);
-	this->respawnTimer = rand() % 200;
+	this->respawnTimer = rand() % 1000;
 
 	this->setSize(Vector2f(playerYSize, playerXSize));
 	this->setOrigin(Vector2f(this->getSize().x / 2, this->getSize().y / 2));

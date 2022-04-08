@@ -142,10 +142,10 @@ void Game::playTrack()
 	
 	if (this->timeClock > 500 && this->timeClock < 550)
 	{
-		this->KickTail.setVolume(75.f);
-		this->Lead1Tail.setVolume(75.f);
-		this->Lead2Tail.setVolume(75.f);
-		this->Lead3Tail.setVolume(75.f);
+		this->KickTail.setVolume(75.f*this->volumeMulti);
+		this->Lead1Tail.setVolume(75.f * this->volumeMulti);
+		this->Lead2Tail.setVolume(75.f * this->volumeMulti);
+		this->Lead3Tail.setVolume(75.f * this->volumeMulti);
 	}
 	if (this->Kick.getStatus() != Music::Playing)
 	{
@@ -171,7 +171,7 @@ void Game::playTrack()
 void Game::enemyUpdate(int width, int height, float dt, int framerate)
 {
 
-	if (this->score > 10)
+	if (this->score > 5)
 	{
 		for (int i = 0; i < this->basicCount; i++)
 		{
@@ -186,22 +186,7 @@ void Game::enemyUpdate(int width, int height, float dt, int framerate)
 			}
 		}
 	}
-	if (this->score > 20)
-	{
-		for (int i = 0; i < this->homingCount; i++)
-		{
-			if (this->homing[i].isDrawn == true)
-			{
-				this->homing[i].movement(this->homing, dt, framerate);
-				//this->homing[i].checkDespawn();
-			}
-			if (this->homing[i].isDrawn == false)
-			{
-				this->homing[i].checkSpawn(dt);
-			}
-		}
-	}
-	if (this->score > 10)
+	if (this->score > 5)
 	{
 		for (int i = 0; i < this->healthCount; i++)
 		{
@@ -216,35 +201,196 @@ void Game::enemyUpdate(int width, int height, float dt, int framerate)
 			}
 		}
 	}
-	if (this->score > 30)
+	if (this->score > 500)
 	{
-		for (int i = 0; i < this->areaCount; i++)
+		if (this->homing[0].isDrawn == true)
 		{
-			if (this->area[i].isDrawn == true)
-			{
-				this->area[i].movement(this->area, dt, framerate);
-				//this->area[i].checkDespawn();
-			}
-			if (this->area[i].isDrawn == false)
-			{
-				this->area[i].checkSpawn(dt);
-			}
+				this->homing[0].movement(this->homing, dt, framerate);
+				//this->homing[i].checkDespawn();
 		}
+		if (this->homing[0].isDrawn == false)
+		{
+				this->homing[0].checkSpawn(dt);
+		}
+		
 	}
-	if (this->score > 40)
+	if (this->score > 600)
 	{
-		for (int i = 0; i < this->shooterCount; i++)
+		if (this->homing[1].isDrawn == true)
 		{
-			if (this->shooter[i].isDrawn == true)
+			this->homing[1].movement(this->homing, dt, framerate);
+			//this->homing[i].checkDespawn();
+		}
+		if (this->homing[1].isDrawn == false)
+		{
+			this->homing[1].checkSpawn(dt);
+		}
+
+	}
+	if (this->score > 700)
+	{
+		if (this->homing[2].isDrawn == true)
+		{
+			this->homing[2].movement(this->homing, dt, framerate);
+			//this->homing[i].checkDespawn();
+		}
+		if (this->homing[2].isDrawn == false)
+		{
+			this->homing[2].checkSpawn(dt);
+		}
+
+	}
+	if (this->score > 800)
+	{
+		if (this->homing[3].isDrawn == true)
+		{
+			this->homing[3].movement(this->homing, dt, framerate);
+			//this->homing[i].checkDespawn();
+		}
+		if (this->homing[3].isDrawn == false)
+		{
+			this->homing[3].checkSpawn(dt);
+		}
+
+	}
+	if (this->score > 900)
+	{
+		if (this->homing[4].isDrawn == true)
+		{
+			this->homing[4].movement(this->homing, dt, framerate);
+			//this->homing[i].checkDespawn();
+		}
+		if (this->homing[4].isDrawn == false)
+		{
+			this->homing[4].checkSpawn(dt);
+		}
+
+	}
+	if (this->score > 1000)
+	{
+		
+			if (this->area[0].isDrawn == true)
 			{
-				this->shooter[i].movement(this->shooter, width, height, dt, framerate);
+				this->area[0].movement(this->area, dt, framerate);
 				//this->area[i].checkDespawn();
 			}
-			if (this->shooter[i].isDrawn == false)
+			if (this->area[0].isDrawn == false)
 			{
-				this->shooter[i].checkSpawn(dt);
+				this->area[0].checkSpawn(dt);
 			}
+		
+	}
+	if (this->score > 1300)
+	{
+		
+			if (this->area[1].isDrawn == true)
+			{
+				this->area[1].movement(this->area, dt, framerate);
+				//this->area[i].checkDespawn();
+			}
+			if (this->area[1].isDrawn == false)
+			{
+				this->area[1].checkSpawn(dt);
+			}
+		
+	}
+	if (this->score > 1600)
+	{
+		
+			if (this->area[2].isDrawn == true)
+			{
+				this->area[2].movement(this->area, dt, framerate);
+				//this->area[i].checkDespawn();
+			}
+			if (this->area[2].isDrawn == false)
+			{
+				this->area[2].checkSpawn(dt);
+			}
+		
+	}
+	if (this->score > 1900)
+	{
+		
+			if (this->area[3].isDrawn == true)
+			{
+				this->area[3].movement(this->area, dt, framerate);
+				//this->area[i].checkDespawn();
+			}
+			if (this->area[3].isDrawn == false)
+			{
+				this->area[3].checkSpawn(dt);
+			}
+		
+	}
+	if (this->score > 2200)
+	{
+		
+			if (this->area[4].isDrawn == true)
+			{
+				this->area[4].movement(this->area, dt, framerate);
+				//this->area[i].checkDespawn();
+			}
+			if (this->area[4].isDrawn == false)
+			{
+				this->area[4].checkSpawn(dt);
+			}
+		
+	}
+	if (this->score > 2800)
+	{
+		
+			if (this->shooter[0].isDrawn == true)
+			{
+				this->shooter[0].movement(this->shooter, width, height, dt, framerate);
+				//this->area[i].checkDespawn();
+			}
+			if (this->shooter[0].isDrawn == false)
+			{
+				this->shooter[0].checkSpawn(dt);
+			}
+		
+	}
+	if (this->score > 3400)
+	{
+
+		if (this->shooter[1].isDrawn == true)
+		{
+			this->shooter[1].movement(this->shooter, width, height, dt, framerate);
+			//this->area[i].checkDespawn();
 		}
+		if (this->shooter[1].isDrawn == false)
+		{
+			this->shooter[1].checkSpawn(dt);
+		}
+
+	}
+	if (this->score > 4000)
+	{
+
+		if (this->shooter[2].isDrawn == true)
+		{
+			this->shooter[2].movement(this->shooter, width, height, dt, framerate);
+			//this->area[i].checkDespawn();
+		}
+		if (this->shooter[2].isDrawn == false)
+		{
+			this->shooter[2].checkSpawn(dt);
+		}
+
+	}
+	if (this->score > 4600)
+	{
+
+		if (this->shooter[3].isDrawn == true)
+		{
+			this->shooter[3].movement(this->shooter, width, height, dt, framerate);
+			//this->area[i].checkDespawn();
+		}
+		if (this->shooter[3].isDrawn == false)
+		{
+			this->shooter[3].checkSpawn(dt);
+		}
+
 	}
 }
 void Game::initScore()
@@ -286,7 +432,7 @@ void Game::initAudio()
 {
 	//this->track.openFromFile("141.wav");
 	this->Kick.openFromFile("Resources/Audio/Music/Kick.wav");
-	this->KickTail.openFromFile("Resources/Audio/Music/Kick.wav");
+	this->KickTail.openFromFile("Resources/Audio/Music/KickTail.wav");
 	this->BassSynth.openFromFile("Resources/Audio/Music/BassSynth.wav");
 	this->Lead1.openFromFile("Resources/Audio/Music/Lead1.wav");
 	this->Lead2.openFromFile("Resources/Audio/Music/Lead2.wav");
@@ -342,18 +488,24 @@ void Game::initAudio()
 }
 void Game::updateAudio()
 {
-	this->Kick.setVolume(75.f*this->volumeMulti);
+	this->Kick.setVolume(75.f * this->volumeMulti);
+	this->KickTail.setVolume(75.f * this->volumeMulti);
 	this->BassSynth.setVolume(75.f * this->volumeMulti);
 	this->Lead1.setVolume(75.f * this->volumeMulti);
 	this->Lead2.setVolume(75.f * this->volumeMulti);
 	this->Lead3.setVolume(75.f * this->volumeMulti);
 	this->Pad.setVolume(75.f * this->volumeMulti);
+	this->Lead1Tail.setVolume(75.f * this->volumeMulti);
+	this->Lead2Tail.setVolume(75.f * this->volumeMulti);
+	this->Lead3Tail.setVolume(75.f * this->volumeMulti);
 
 	this->bomb.BombSound.setVolume(100.f*this->sfxMulti);
 	this->DropBomb.setVolume(100.f * this->sfxMulti);
 	this->Heal.setVolume(100.f * this->sfxMulti);
 	this->Hurt.setVolume(100.f * this->sfxMulti);
 	this->EnemyDie.setVolume(25.f * this->sfxMulti);
+
+	//this->Kick.setVolume(75.f * this->volumeMulti);
 
 	this->Start.setVolume(100.f * this->sfxMulti);
 	this->Rollover.setVolume(100.f * this->sfxMulti);
@@ -491,7 +643,7 @@ void Game::collision()
 				this->basic[i].isDrawn = false;
 				this->basic[i].setPosition(Vector2f(this->basic[i].genSpawnX(this->windowWidth), 0.f));
 				this->basic[i].respawnTimer = this->randomRespawn() % 300;
-				this->score = this->score + 50;
+				this->score = this->score + 25;
 				this->EnemyDie.play();
 			}
 			
@@ -522,7 +674,7 @@ void Game::collision()
 				this->homing[i].setPosition(Vector2f(this->homing[i].genSpawnX(this->windowWidth), this->homing[i].genSpawnY(this->windowHeight)));
 				this->homing[i].respawnTimer = this->randomRespawn() % 200;
 				cout << "Homing timer: " << this->homing[i].respawnTimer << endl;
-				this->score = this->score + 50;
+				this->score = this->score + 25;
 				this->EnemyDie.play();
 			}
 		}
@@ -584,7 +736,7 @@ void Game::collision()
 				this->area[i].isDrawn = false;
 				this->area[i].setPosition(Vector2f(this->area[i].genSpawnX(this->windowWidth), this->area[i].genSpawnY(this->windowHeight)));
 				this->area[i].respawnTimer = this->randomRespawn() % 1200;
-				this->score = this->score + 50;
+				this->score = this->score + 25;
 				this->EnemyDie.play();
 			}
 		}
@@ -624,7 +776,7 @@ void Game::collision()
 				this->shooter[i].isDrawn = false;
 				this->shooter[i].setPosition(Vector2f(this->shooter[i].genSpawnX(this->windowWidth), this->shooter[i].genSpawnY(this->windowHeight)));
 				this->shooter[i].respawnTimer = this->randomRespawn() % 1200;
-				this->score = this->score + 50;
+				this->score = this->score + 25;
 				this->EnemyDie.play();
 			}
 		}
